@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content" >
+
+    <TextView
+        android:id="@+id/label_nombre_comun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre Común :"
+        android:layout_alignParentLeft="true" />
+    <EditText
+        android:id="@+id/text_nombre_comun"
+        android:hint="Ingrese Nombre común del árbol"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"
+        android:layout_toRightOf="@+id/label_nombre_comun"
+
+        />
+
+    <TextView
+        android:id="@+id/label_dap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DAP :"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/text_nombre_comun"
+        android:padding="10dp"/>
+
+    <EditText
+        android:id="@+id/text_dap"
+        android:hint="Ingrese el DAP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/editbox_background"
+        android:layout_toRightOf="@+id/label_dap"
+        android:layout_below="@id/text_nombre_comun" />
+
+</RelativeLayout>

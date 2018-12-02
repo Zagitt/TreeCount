@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TreeCount</string>
+    <string name="title_activity_main_menu">MainMenuActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Sistema de Inventario Forestal</string>
+    <string name="nav_header_subtitle">Grupo 8</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_salir">Salir</string>
+</resources>
