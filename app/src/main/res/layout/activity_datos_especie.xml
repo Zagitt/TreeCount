@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DatosEspecieActivity">
+
+
+    <TextView
+        android:id="@+id/label_nombre_comun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="89dp"
+        android:layout_marginEnd="33dp"
+        android:text="Nombre Común :"
+        app:layout_constraintEnd_toStartOf="@+id/txt_nombre_comun"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/txt_nombre_comun"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="27dp"
+        android:layout_marginEnd="57dp"
+        android:layout_marginBottom="31dp"
+        android:ems="10"
+        android:hint="nombre común"
+        android:inputType="textPersonName"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/label_nombre_scientifico"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/label_nombre_comun"
+        app:layout_constraintTop_toBottomOf="@+id/label_titulo_datos_especie" />
+
+    <TextView
+        android:id="@+id/label_nombre_scientifico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="31dp"
+        android:layout_marginEnd="11dp"
+        android:text="Nombre Scientífico :"
+        app:layout_constraintEnd_toStartOf="@+id/txt_nombre_scientifico"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_nombre_comun" />
+
+    <EditText
+        android:id="@+id/txt_nombre_scientifico"
+        android:layout_width="0dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="20dp"
+        android:ems="10"
+        android:hint="nombre scientifico"
+        android:inputType="textPersonName"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/txt_dap"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/label_nombre_scientifico"
+        app:layout_constraintTop_toBottomOf="@+id/txt_nombre_comun" />
+
+    <TextView
+        android:id="@+id/label_dap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="36dp"
+        android:text="DAP :"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_nombre_scientifico" />
+
+    <EditText
+        android:id="@+id/txt_dap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="21dp"
+        android:ems="10"
+        android:hint="Diametro Altura Pecho"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/txt_nombre_scientifico"
+        app:layout_constraintTop_toBottomOf="@+id/label_nombre_scientifico" />
+
+    <TextView
+        android:id="@+id/label_altura_fuste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="36dp"
+        android:text="Altura Fuste :"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_dap" />
+
+    <EditText
+        android:id="@+id/txt_altura_fuste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:ems="10"
+        android:hint="altura fuste"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/txt_dap"
+        app:layout_constraintTop_toBottomOf="@+id/txt_dap" />
+
+    <TextView
+        android:id="@+id/label_altura_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="40dp"
+        android:text="Altura Total :"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_altura_fuste" />
+
+    <EditText
+        android:id="@+id/txt_altura_total"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="altura total"
+        android:inputType="textPersonName"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/txt_altura_fuste"
+        app:layout_constraintTop_toBottomOf="@+id/txt_altura_fuste" />
+
+    <TextView
+        android:id="@+id/label_latitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="36dp"
+        android:text="Latitud"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/label_altura_total" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="21dp"
+        android:layout_marginBottom="20dp"
+        android:text="Longitud"
+        app:layout_constraintBottom_toTopOf="@+id/icon_foto"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/txt_longitud" />
+
+    <EditText
+        android:id="@+id/txt_latitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:ems="10"
+        android:hint="latitud"
+        android:inputType="numberDecimal"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/txt_altura_total"
+        app:layout_constraintTop_toBottomOf="@+id/txt_altura_total" />
+
+    <EditText
+        android:id="@+id/txt_longitud"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="longitud"
+        android:inputType="numberDecimal"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="@+id/txt_nombre_foto_"
+        app:layout_constraintTop_toBottomOf="@+id/txt_latitud" />
+
+    <ImageView
+        android:id="@+id/icon_foto"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginBottom="29dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView8"
+        app:srcCompat="@drawable/ic_menu_camera" />
+
+    <EditText
+        android:id="@+id/txt_nombre_foto_"
+        android:layout_width="139dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="93dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="92dp"
+        android:layout_marginBottom="26dp"
+        android:ems="10"
+        android:inputType="none"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/label_latitud"
+        app:layout_constraintTop_toBottomOf="@+id/txt_longitud" />
+
+    <TextView
+        android:id="@+id/label_titulo_datos_especie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Datos de la Especie"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>
