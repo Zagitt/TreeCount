@@ -64,7 +64,7 @@
         app:layout_constraintTop_toBottomOf="@+id/txt_nombre_comun" />
 
     <TextView
-        android:id="@+id/label_dap"
+        android:id="@+id/label_P2_coordenada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="15dp"
@@ -93,7 +93,7 @@
         android:layout_marginTop="36dp"
         android:text="Altura Fuste :"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label_dap" />
+        app:layout_constraintTop_toBottomOf="@+id/label_P2_coordenada" />
 
     <EditText
         android:id="@+id/txt_altura_fuste"

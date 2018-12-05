@@ -12,10 +12,11 @@
             android:id="@+id/nav_gallery"
             android:icon="@drawable/ic_menu_plot"
             android:title="Parcela" />
-        <item
+        <!--<item
             android:id="@+id/nav_slideshow"
             android:icon="@drawable/ic_menu_inventario"
             android:title="Inventario" />
+         -->
         <item
             android:id="@+id/nav_manage"
             android:icon="@drawable/ic_menu_chart"
@@ -29,6 +30,11 @@
                 android:id="@+id/nav_send"
                 android:icon="@drawable/ic_menu_salir"
                 android:title="Salilr" />
+            <item
+                android:id="@+id/nav_slideshow"
+                android:icon="@drawable/ic_menu_inventario"
+                android:title="Sincronizar" />
+
         </menu>
     </item>
 

@@ -1,41 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content" >
+    android:layout_height="match_parent" >
 
     <TextView
-        android:id="@+id/label_nombre_comun"
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nombre Común :"
-        android:layout_alignParentLeft="true" />
-    <EditText
-        android:id="@+id/text_nombre_comun"
-        android:hint="Ingrese Nombre común del árbol"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@android:drawable/editbox_background"
-        android:layout_toRightOf="@+id/label_nombre_comun"
-
-        />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="23dp"
+        android:layout_marginTop="26dp"
+        android:text="Ingreso de Coordenadas de Parcela"
+        android:textSize="18sp"
+        android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/label_dap"
+        android:id="@+id/label_P1_coordenada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="DAP :"
         android:layout_alignParentLeft="true"
-        android:layout_below="@id/text_nombre_comun"
-        android:padding="10dp"/>
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="95dp"
+        android:text="Coordenada 1 :" />
 
     <EditText
-        android:id="@+id/text_dap"
-        android:hint="Ingrese el DAP"
+        android:id="@+id/txt_P1_coordenada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="91dp"
+        android:layout_toRightOf="@+id/label_P1_coordenada"
         android:background="@android:drawable/editbox_background"
-        android:layout_toRightOf="@+id/label_dap"
-        android:layout_below="@id/text_nombre_comun" />
+        android:hint="Ingrese coordenada"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/label_P2_coordenada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_P1_coordenada"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="33dp"
+        android:layout_marginTop="39dp"
+        android:text="Coordenada 2 :" />
+
+    <EditText
+        android:id="@+id/txt_P2_coordenada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_P1_coordenada"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="33dp"
+        android:layout_toRightOf="@+id/label_P2_coordenada"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Ingrese coordenada"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/label_P3_coordenada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/label_P2_coordenada"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="33dp"
+        android:text="Coordenada 3 :" />
+
+    <EditText
+        android:id="@+id/txt_P3_coordenada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_P2_coordenada"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="33dp"
+        android:layout_toRightOf="@+id/label_P3_coordenada"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Ingrese coordenada"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/label_P4_coordenada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_P3_coordenada"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="35dp"
+        android:layout_marginTop="38dp"
+        android:text="Coordenada 4 :" />
+
+    <EditText
+        android:id="@+id/txt_P4_coordenada"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_P3_coordenada"
+        android:layout_marginLeft="55dp"
+        android:layout_marginTop="33dp"
+        android:layout_toRightOf="@+id/label_P3_coordenada"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Ingrese coordenada"
+        android:textSize="14sp" />
+
 
 </RelativeLayout>
