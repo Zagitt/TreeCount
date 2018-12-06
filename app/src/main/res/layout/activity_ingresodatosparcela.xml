@@ -17,93 +17,199 @@
         android:textSize="18sp"
         android:textStyle="bold" />
 
+    <!-- COORDENADAS DE PARCELA 1 -->
     <TextView
         android:id="@+id/label_P1_coordenada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="95dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="84dp"
         android:text="Coordenada 1 :" />
 
     <EditText
-        android:id="@+id/txt_P1_coordenada"
+        android:id="@+id/txt_P1_lat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="91dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="67dp"
         android:layout_toRightOf="@+id/label_P1_coordenada"
         android:background="@android:drawable/editbox_background"
-        android:hint="Ingrese coordenada"
+        android:hint="Latitud"
         android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/txt_P1_lon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/txt_P1_lat"
+        android:layout_toRightOf="@+id/label_P1_coordenada"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Longitud"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn_P1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="79dp"
+        android:layout_marginEnd="32dp"
+        android:text="P1(X,Y)" />
+
+    <!-- COORDENADAS DE PARCELA 2 -->
 
     <TextView
         android:id="@+id/label_P2_coordenada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txt_P1_coordenada"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="33dp"
-        android:layout_marginTop="39dp"
+        android:layout_below="@id/label_P1_coordenada"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="76dp"
         android:text="Coordenada 2 :" />
 
     <EditText
-        android:id="@+id/txt_P2_coordenada"
+        android:id="@+id/txt_P2_lat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txt_P1_coordenada"
-        android:layout_marginLeft="60dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/txt_P1_lon"
         android:layout_toRightOf="@+id/label_P2_coordenada"
         android:background="@android:drawable/editbox_background"
-        android:hint="Ingrese coordenada"
+        android:hint="Latitud"
         android:textSize="14sp" />
 
+    <EditText
+        android:id="@+id/txt_P2_lon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_P2_lat"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/label_P2_coordenada"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Longitud"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn_P2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_P1"
+        android:layout_alignBaseline="@+id/label_P2_coordenada"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="32dp"
+        android:text="P2(X,Y)" />
+
+    <!-- COORDENADAS DE PARCELA 3 -->
     <TextView
         android:id="@+id/label_P3_coordenada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/label_P2_coordenada"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="76dp"
         android:text="Coordenada 3 :" />
 
     <EditText
-        android:id="@+id/txt_P3_coordenada"
+        android:id="@+id/txt_P3_lat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txt_P2_coordenada"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/txt_P2_lon"
         android:layout_toRightOf="@+id/label_P3_coordenada"
         android:background="@android:drawable/editbox_background"
-        android:hint="Ingrese coordenada"
+        android:hint="Latitud"
         android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/txt_P3_lon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_P3_lat"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/label_P3_coordenada"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Longitud"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn_P3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_P2"
+        android:layout_alignBaseline="@+id/label_P3_coordenada"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="32dp"
+        android:text="P3(X,Y)" />
+
+    <!-- COORDENADAS DE PARCELA 4 -->
 
     <TextView
         android:id="@+id/label_P4_coordenada"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txt_P3_coordenada"
+        android:layout_below="@id/label_P3_coordenada"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="35dp"
-        android:layout_marginTop="38dp"
+        android:layout_marginLeft="31dp"
+        android:layout_marginTop="76dp"
         android:text="Coordenada 4 :" />
 
     <EditText
-        android:id="@+id/txt_P4_coordenada"
+        android:id="@+id/txt_P4_lat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/txt_P3_coordenada"
-        android:layout_marginLeft="55dp"
-        android:layout_marginTop="33dp"
-        android:layout_toRightOf="@+id/label_P3_coordenada"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="30dp"
+        android:layout_below="@id/txt_P3_lon"
+        android:layout_toRightOf="@+id/label_P4_coordenada"
         android:background="@android:drawable/editbox_background"
-        android:hint="Ingrese coordenada"
+        android:hint="Latitud"
         android:textSize="14sp" />
+
+    <EditText
+        android:id="@+id/txt_P4_lon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/txt_P4_lat"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="5dp"
+        android:layout_toRightOf="@+id/label_P4_coordenada"
+        android:background="@android:drawable/editbox_background"
+        android:hint="Longitud"
+        android:textSize="14sp" />
+
+    <Button
+        android:id="@+id/btn_P4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btn_P3"
+        android:layout_alignBaseline="@+id/label_P4_coordenada"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="32dp"
+        android:text="P4(X,Y)" />
+
+    <Button
+        android:id="@+id/btn_mostrar_parcela"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/label_P2_coordenada"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="-130dp"
+        android:layout_marginBottom="25dp"
+        android:text="Mostrar Parcela" />
 
 
 </RelativeLayout>

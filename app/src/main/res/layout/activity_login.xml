@@ -2,17 +2,11 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    tools:context=".LoginActivity"
     android:orientation="vertical"
-    android:gravity="center"
-    android:padding="20dp">
-
-    <ImageView
-        android:layout_width="90dp"
-        android:layout_height="wrap_content"
-        android:src="@mipmap/leaf" />
+    android:layout_margin="15dp">
 
 
     <EditText
@@ -22,8 +16,8 @@
         android:padding="15dp"
         android:drawablePadding="10dp"
         android:hint="Email"
-
-        android:textColorHighlight="@color/white"/>
+        android:inputType="textEmailAddress"
+        android:id="@+id/txtLoginCorreo"/>
 
     <EditText
         android:layout_width="match_parent"
@@ -31,61 +25,27 @@
         android:layout_margin="10dp"
         android:padding="15dp"
         android:drawablePadding="10dp"
+        android:inputType="textPassword"
         android:hint="Password"
-        android:textColorHighlight="@color/white"/>
+        android:id="@+id/txtLoginPassword"/>
 
-    <!--    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-           <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Remember Me"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="0dp"
-
-                android:checked="true"/>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Forget Password"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginBottom="10dp"
-                android:layout_marginTop="0dp"
-
-                android:drawablePadding="6dp"
-                android:padding="4dp"/>
-
-
-        </LinearLayout>
-    -->
-    <Button
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Log In"
-        android:shadowColor="@android:color/transparent"
-        android:padding="15dp"
-        android:layout_marginRight="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginBottom="10dp" />
+        android:orientation="horizontal"
+        android:layout_weight="10"
+        android:layout_margin="5dp"
+        >
 
 
-    <!--    <Button
-            android:layout_width="match_parent"
+        <Button
+            android:layout_width="0dp"
+            android:layout_weight="5"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:shadowColor="@android:color/transparent"
-            android:padding="15dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginTop="0dp"
-            android:textColor="@color/white"/> -->
+            android:text="Ingresar"
+            android:id="@+id/btnIngresar"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
 
 </LinearLayout>

@@ -5,11 +5,11 @@
 
     <group android:checkableBehavior="single" >
         <item
-            android:id="@+id/nav_camera"
+            android:id="@+id/nav_brigada"
             android:icon="@drawable/icon_group"
             android:title="Brigada" />
         <item
-            android:id="@+id/nav_gallery"
+            android:id="@+id/nav_parcela"
             android:icon="@drawable/ic_menu_plot"
             android:title="Parcela" />
         <!--<item
@@ -18,7 +18,7 @@
             android:title="Inventario" />
          -->
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_estadisticas"
             android:icon="@drawable/ic_menu_chart"
             android:title="Estadisticas" />
     </group>
@@ -27,11 +27,11 @@
         <menu>
 
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_salir"
                 android:icon="@drawable/ic_menu_salir"
                 android:title="Salilr" />
             <item
-                android:id="@+id/nav_slideshow"
+                android:id="@+id/nav_sincronizar"
                 android:icon="@drawable/ic_menu_inventario"
                 android:title="Sincronizar" />
 
