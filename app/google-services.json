@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "671773580380",
+    "firebase_url": "https://treecount-ad91a.firebaseio.com",
+    "project_id": "treecount-ad91a",
+    "storage_bucket": "treecount-ad91a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:671773580380:android:b3930392058ab32f",
+        "android_client_info": {
+          "package_name": "com.dev.treecount"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "671773580380-dri4fot89o810tapssf874g5i9rt9vgm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC2lttdxJT1fVdeopGAICr2ea2ajzX8yfM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -112,7 +112,7 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
 
         if(user != null){
-            Intent act= new Intent(this, MainActivity.class); //va hacia el main activity
+            Intent act= new Intent(this, BrigadaActivity.class); //va hacia el main activity
             startActivity(act);
             finish();
         }

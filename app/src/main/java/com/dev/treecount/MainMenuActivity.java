@@ -1,5 +1,6 @@
 package com.dev.treecount;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -83,6 +84,8 @@ public class MainMenuActivity extends AppCompatActivity
         if (id == R.id.nav_parcela) {
             // Handle the camera action
         } else if (id == R.id.nav_brigada) {
+            Intent act = new Intent(this, BrigadaActivity.class);
+            startActivity(act);
 
         } else if (id == R.id.nav_estadisticas) {
 
