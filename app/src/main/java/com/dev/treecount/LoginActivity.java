@@ -23,7 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     private EditText txtLoginCorreo;
     private EditText txtLoginPassword;
     private Button btnIngresar;
-    private Button btnRegistrar;
+//    private Button btnRegistrar;
     private FirebaseAuth mAuth;
 
 
@@ -112,9 +112,10 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
 
         if(user != null){
-            Intent act= new Intent(this, BrigadaActivity.class); //va hacia el main activity
-            startActivity(act);
-            finish();
+            Toast.makeText(this, "Ingreso Correcto", Toast.LENGTH_SHORT).show();
+            //Intent act= new Intent(this, BrigadaActivity.class); //va hacia el main activity
+            //startActivity(act);
+            //finish();
         }
     }
 
