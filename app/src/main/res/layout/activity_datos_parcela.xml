@@ -76,12 +76,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
 
-                            <TextView
-                                android:id="@+id/txtLatitud1"
-                                android:enabled="false"
-                                android:hint="0.0"
+                            <EditText
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:hint="0.0"
+                                android:id="@+id/txtLatitud1"/>
 
                         </LinearLayout>
 
@@ -97,12 +97,13 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
 
-                            <TextView
-                                android:id="@+id/txtLongitud1"
-                                android:enabled="false"
-                                android:hint="0.0"
+
+                            <EditText
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:hint="0.0"
+                                android:id="@+id/txtLongitud1"/>
 
                         </LinearLayout>
 
@@ -176,12 +177,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
 
-                            <TextView
-                                android:id="@+id/txtLatitud2"
-                                android:enabled="false"
-                                android:hint="0.0"
+                            <EditText
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:hint="0.0"
+                                android:id="@+id/txtLatitud2"/>
 
                         </LinearLayout>
 
@@ -196,13 +197,12 @@
                                 android:text="Longitud: "
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
-
-                            <TextView
-                                android:id="@+id/txtLongitud2"
-                                android:enabled="false"
-                                android:hint="0.0"
+                            <EditText
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:hint="0.0"
+                                android:id="@+id/txtLongitud2"/>
 
                         </LinearLayout>
 
@@ -276,12 +276,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
 
-                            <TextView
-                                android:id="@+id/txtLatitud3"
-                                android:enabled="false"
-                                android:hint="0.0"
+                            <EditText
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:hint="0.0"
+                                android:id="@+id/txtLatitud3"/>
 
                         </LinearLayout>
 
@@ -297,15 +297,14 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
 
-                            <TextView
-                                android:id="@+id/txtLongitud3"
-                                android:enabled="false"
-                                android:hint="0.0"
+                            <EditText
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:hint="0.0"
+                                android:id="@+id/txtLongitud3"/>
 
                         </LinearLayout>
-
 
                     </LinearLayout>
 
@@ -376,12 +375,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
 
-                            <TextView
-                                android:id="@+id/txtLatitud4"
-                                android:enabled="false"
-                                android:hint="0.0"
+                            <EditText
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:hint="0.0"
+                                android:id="@+id/txtLatitud4"/>
 
                         </LinearLayout>
 
@@ -397,12 +396,12 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content" />
 
-                            <TextView
-                                android:id="@+id/txtLongitud4"
-                                android:enabled="false"
-                                android:hint="0.0"
+                            <EditText
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                                android:layout_height="wrap_content"
+                                android:textSize="14sp"
+                                android:hint="0.0"
+                                android:id="@+id/txtLongitud4"/>
 
                         </LinearLayout>
 

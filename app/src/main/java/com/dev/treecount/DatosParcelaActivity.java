@@ -5,51 +5,50 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
 import android.location.LocationManager;
-import android.os.Handler;
+import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.widget.Toolbar;
 
 import com.dev.treecount.model.Parcela;
+import com.dev.treecount.util.GeoLocation;
 import com.google.gson.Gson;
 
 public class DatosParcelaActivity extends AppCompatActivity {
-
+    private GeoLocation geoLocation;
     private Parcela parcela;
     private int actualBox = 1;
 
     // BOX 1
-    private TextView txtLatitud1;
-    private TextView txtLongitud1;
+    private EditText txtLatitud1;
+    private EditText txtLongitud1;
 
     // BOX 2
-    private TextView txtLatitud2;
-    private TextView txtLongitud2;
+    private EditText txtLatitud2;
+    private EditText txtLongitud2;
 
     // BOX 3
-    private TextView txtLatitud3;
-    private TextView txtLongitud3;
+    private EditText txtLatitud3;
+    private EditText txtLongitud3;
 
     // BOX 4
-    private TextView txtLatitud4;
-    private TextView txtLongitud4;
+    private EditText txtLatitud4;
+    private EditText txtLongitud4;
 
     // Progress
     private LinearLayout lnlProgress;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_datos_parcela);
+
+        geoLocation = new GeoLocation(this);
 
         String data = getIntent().getExtras().getString("parcela");
         parcela = new Gson().fromJson(data, Parcela.class);
@@ -64,22 +63,23 @@ public class DatosParcelaActivity extends AppCompatActivity {
         FloatingActionButton btnAdd4 = (FloatingActionButton) findViewById(R.id.btnAdd4);
 
         // Longitudes
-        txtLongitud1 = (TextView) findViewById(R.id.txtLongitud1);
-        txtLongitud2 = (TextView) findViewById(R.id.txtLongitud2);
-        txtLongitud3 = (TextView) findViewById(R.id.txtLongitud3);
-        txtLongitud4 = (TextView) findViewById(R.id.txtLongitud4);
+        txtLongitud1 = (EditText) findViewById(R.id.txtLongitud1);
+        txtLongitud2 = (EditText) findViewById(R.id.txtLongitud2);
+        txtLongitud3 = (EditText) findViewById(R.id.txtLongitud3);
+        txtLongitud4 = (EditText) findViewById(R.id.txtLongitud4);
 
         // Latitudes
-        txtLatitud1 = (TextView) findViewById(R.id.txtLatitud1);
-        txtLatitud2 = (TextView) findViewById(R.id.txtLatitud2);
-        txtLatitud3 = (TextView) findViewById(R.id.txtLatitud3);
-        txtLatitud4 = (TextView) findViewById(R.id.txtLatitud4);
+        txtLatitud1 = (EditText) findViewById(R.id.txtLatitud1);
+        txtLatitud2 = (EditText) findViewById(R.id.txtLatitud2);
+        txtLatitud3 = (EditText) findViewById(R.id.txtLatitud3);
+        txtLatitud4 = (EditText) findViewById(R.id.txtLatitud4);
 
         btnAdd1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 actualBox = 1;
-                refreshLocation();
+                //refreshLocation();
+                geoLocation.getTextCoordinates(txtLongitud1, txtLatitud1, null, null);
             }
         });
 
@@ -87,7 +87,8 @@ public class DatosParcelaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 actualBox = 2;
-                refreshLocation();
+                //refreshLocation();
+                geoLocation.getTextCoordinates(txtLongitud2, txtLatitud2, null, null);
             }
         });
 
@@ -95,7 +96,8 @@ public class DatosParcelaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 actualBox = 3;
-                refreshLocation();
+                //refreshLocation();
+                geoLocation.getTextCoordinates(txtLongitud3, txtLatitud3, null, null);
             }
         });
 
@@ -103,7 +105,8 @@ public class DatosParcelaActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 actualBox = 4;
-                refreshLocation();
+                //refreshLocation();
+                geoLocation.getTextCoordinates(txtLongitud4, txtLatitud4, null, null);
             }
         });
 
@@ -152,6 +155,12 @@ public class DatosParcelaActivity extends AppCompatActivity {
 
         lnlProgress.setVisibility(View.VISIBLE);
 
+        /*
+        geoLocation.getTextCoordinates(txtLongitud, txtLatitud, null, null);
+        */
+
+
+       /*
         LocationManager mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
@@ -163,7 +172,7 @@ public class DatosParcelaActivity extends AppCompatActivity {
 
 
 
-       /* final Location location = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+        final Location location = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 
         new Handler().postDelayed(new Runnable() {
             @Override
