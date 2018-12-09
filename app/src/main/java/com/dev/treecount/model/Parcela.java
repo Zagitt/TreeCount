@@ -1,5 +1,7 @@
 package com.dev.treecount.model;
 
+import android.content.ContentValues;
+
 public class Parcela {
     private int idParcela;
     private String nombre;
@@ -84,65 +86,24 @@ public class Parcela {
     public String getBrigadaNombre() { return brigadaNombre; }
 
     public void setBrigadaNombre(String brigadaNombre) { this.brigadaNombre = brigadaNombre; }
-}
 
-/*
-public class Person {
-    private String nombre;
-    private String dni;
-    private int edad;
-    private String biografia;
-    private String urlfoto;
-
-    public Person() {
-    }
-
-    public Person(String nombre, String dni, int edad, String biografia, String urlfoto) {
-        this.nombre = nombre;
-        this.dni = dni;
-        this.edad = edad;
-        this.biografia = biografia;
-        this.urlfoto = urlfoto;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getDni() {
-        return dni;
-    }
-
-    public void setDni(String dni) {
-        this.dni = dni;
-    }
-
-    public int getEdad() {
-        return edad;
-    }
-
-    public void setEdad(int edad) {
-        this.edad = edad;
-    }
-
-    public String getBiografia() {
-        return biografia;
-    }
-
-    public void setBiografia(String biografia) {
-        this.biografia = biografia;
-    }
-
-    public String getUrlfoto() {
-        return urlfoto;
-    }
-
-    public void setUrlfoto(String urlfoto) {
-        this.urlfoto = urlfoto;
+    public ContentValues toContentValues () {
+        ContentValues values = new ContentValues();
+        values.put("idParcela", getIdParcela());
+        values.put("nombre", getNombre());
+        values.put("ref_latitud", getRefLatitud());
+        values.put("ref_longitud", getRefLongitud());
+        values.put("p1_latitud", getP1Latitud());
+        values.put("p1_longitud", getP1Longitud());
+        values.put("p2_latitud", getP2Latitud());
+        values.put("p2_longitud", getP2Longitud());
+        values.put("p3_latitud", getP3Latitud());
+        values.put("p3_longitud", getP3Longitud());
+        values.put("p4_latitud", getP4Latitud());
+        values.put("p4_longitud", getP4Longitud());
+        values.put("departamento", "");
+        values.put("idBrigada", 0);
+        values.put("brigadaNombre", getBrigadaNombre());
+        return values;
     }
 }
- */
