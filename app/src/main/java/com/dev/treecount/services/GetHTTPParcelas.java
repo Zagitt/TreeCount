@@ -27,10 +27,12 @@ import java.net.URLDecoder;
 import java.util.List;
 
 public class GetHTTPParcelas extends AsyncTask<Void, Void, String> {
+    private String userEmail;
     private Context httpContext;
     ProgressDialog progressDialog;
 
-    public GetHTTPParcelas(Context httpContext) {
+    public GetHTTPParcelas(String userEmail, Context httpContext) {
+        this.userEmail = userEmail;
         this.httpContext = httpContext;
     }
 
@@ -77,9 +79,9 @@ public class GetHTTPParcelas extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... voids) {
-        String  result = null;
+        String result = null;
         try {
-            String wsURL = "http://demos.hypergis.pe/alumnos/cvalenzuela/wsParcela.php?user=cvalenzuela@upc.edu.pe&format=json";
+            String wsURL = "http://demos.hypergis.pe/alumnos/cvalenzuela/wsParcela.php?user=" + userEmail + "&format=json";
             URL url = new URL(wsURL);
             HttpURLConnection urlCon = (HttpURLConnection)  url.openConnection();
             InputStream in = new BufferedInputStream(urlCon.getInputStream());

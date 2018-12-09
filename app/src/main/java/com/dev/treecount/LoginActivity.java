@@ -92,7 +92,9 @@ public class LoginActivity extends AppCompatActivity {
     private void updateUI(FirebaseUser user) {
         if(user != null){
             // Temporalmente aquí hasta ponerlo en su sitio
-            CargarDatos();
+            String userEmail = user.getEmail();
+
+            CargarDatos(userEmail);
 
             Intent act = new Intent(this, ParcelaActivity.class);
             startActivity(act);
@@ -107,8 +109,8 @@ public class LoginActivity extends AppCompatActivity {
         updateUI(currentUser);
     }
 
-    private void CargarDatos() {
-        GetHTTPParcelas ws = new GetHTTPParcelas(this);
+    private void CargarDatos(String userEmail) {
+        GetHTTPParcelas ws = new GetHTTPParcelas(userEmail, this);
         ws.execute();
     }
 }
