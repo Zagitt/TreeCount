@@ -70,6 +70,10 @@ public class GetHTTPParcelas extends AsyncTask<Void, Void, String> {
 
             String msg = String.valueOf(jsonArray.length()) + " registros";
             Toast.makeText(httpContext, msg, Toast.LENGTH_SHORT).show();
+
+
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {

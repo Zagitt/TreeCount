@@ -32,7 +32,7 @@ public class ParcelaActivity extends AppCompatActivity {
         lManager = new LinearLayoutManager(this);
         reciclador.setLayoutManager(lManager);
 
-        adapter = new ParcelaAdapter(parcelas);
+        adapter = new ParcelaAdapter(getApplicationContext(),parcelas);
         reciclador.setAdapter(adapter);
     }
 }

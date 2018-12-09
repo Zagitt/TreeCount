@@ -96,7 +96,7 @@ public class LoginActivity extends AppCompatActivity {
 
             CargarDatos(userEmail);
 
-            Intent act = new Intent(this, ParcelaActivity.class);
+            Intent act = new Intent(this, MainMenuActivity.class);
             startActivity(act);
             finish();
         }

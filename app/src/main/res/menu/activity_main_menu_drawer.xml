@@ -21,21 +21,28 @@
             android:id="@+id/nav_estadisticas"
             android:icon="@drawable/ic_menu_chart"
             android:title="Estadisticas" />
+
     </group>
 
     <item android:title="App">
-        <menu>
 
+        <menu>
             <item
-                android:id="@+id/nav_salir"
-                android:icon="@drawable/ic_menu_salir"
-                android:title="Salilr" />
+                android:id="@+id/nav_descargar"
+                android:icon="@drawable/ic_menu_inventario"
+                android:title="Descargar Información" />
+
             <item
                 android:id="@+id/nav_sincronizar"
                 android:icon="@drawable/ic_menu_inventario"
                 android:title="Sincronizar" />
 
+            <item
+                android:id="@+id/nav_salir"
+                android:icon="@drawable/ic_menu_salir"
+                android:title="Salir" />
         </menu>
+
     </item>
 
 </menu>
