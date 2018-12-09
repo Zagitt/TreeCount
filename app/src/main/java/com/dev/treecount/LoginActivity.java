@@ -110,11 +110,9 @@ public class LoginActivity extends AppCompatActivity {
     }//fin validar
 
     private void updateUI(FirebaseUser user) {
-
         if(user != null){
-            Toast.makeText(this, "Ingreso Correcto", Toast.LENGTH_SHORT).show();
-            //Intent act= new Intent(this, BrigadaActivity.class); //va hacia el main activity
-            //startActivity(act);
+            Intent act = new Intent(this, ParcelaActivity.class);
+            startActivity(act);
             //finish();
         }
     }
