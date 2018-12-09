@@ -54,13 +54,21 @@ public class GetHTTPParcelas extends AsyncTask<Void, Void, String> {
             JSONObject jsonObject = new JSONObject(URLDecoder.decode(s, "UTF-8"));
             JSONArray jsonArray = jsonObject.getJSONArray("parcelas");
             for (int i=0; i<jsonArray.length();i++){
+
+                float refLatitud  = 0;
+                float refLongitud = 0;
+
                 int idParcela = Integer.parseInt(jsonArray.getJSONObject(i).getString("idParcela"));
                 String nombre = jsonArray.getJSONObject(i).getString("nombre");
                 String departamento = jsonArray.getJSONObject(i).getString("departamento");
                 int idBrigada = Integer.parseInt(jsonArray.getJSONObject(i).getString("idBrigada"));
                 String brigadaNombre = jsonArray.getJSONObject(i).getString("brigadaNombre");
-                float refLatitud = Float.parseFloat(jsonArray.getJSONObject(i).getString("ref_latitud"));
-                float refLongitud = Float.parseFloat(jsonArray.getJSONObject(i).getString("ref_longitud"));
+
+                String latitud = jsonArray.getJSONObject(i).getString("ref_latitud");
+                if(latitud != null) refLatitud = Float.parseFloat(latitud);
+
+                String longitud = jsonArray.getJSONObject(i).getString("ref_longitud");
+                if(longitud != null) refLongitud = Float.parseFloat(longitud);
 
                 this.httpList.add(new Parcela(idParcela, nombre, refLatitud, refLongitud, 0, 0, 0, 0, 0, 0, 0, 0));
 
