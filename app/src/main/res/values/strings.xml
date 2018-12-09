@@ -9,4 +9,5 @@
     <string name="popMsgTitulo">Descargando</string>
     <string name="popMsgMensaje">Por favor, espere...</string>
     <string name="app_name">TreeCount</string>
+    <string name="activity_detalles">Detalles de la Parcela</string>
 </resources>

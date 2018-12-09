@@ -8,6 +8,7 @@ import android.widget.Toast;
 
 import com.dev.treecount.R;
 import com.dev.treecount.adapter.ParcelaAdapter;
+import com.dev.treecount.database.TreeDBHelper;
 import com.dev.treecount.model.Parcela;
 
 import org.json.JSONArray;
@@ -26,16 +27,12 @@ import java.net.URLDecoder;
 import java.util.List;
 
 public class GetHTTPParcelas extends AsyncTask<Void, Void, String> {
-    private List<Parcela> httpList;
-    private RecyclerView httpRecycler;
-    private RecyclerView.Adapter httpAdapter;
+    private String userEmail;
     private Context httpContext;
     ProgressDialog progressDialog;
 
-    public GetHTTPParcelas(List<Parcela> httpList, RecyclerView httpRecycler, RecyclerView.Adapter httpAdapter, Context httpContext) {
-        this.httpList = httpList;
-        this.httpRecycler = httpRecycler;
-        this.httpAdapter = httpAdapter;
+    public GetHTTPParcelas(String userEmail, Context httpContext) {
+        this.userEmail = userEmail;
         this.httpContext = httpContext;
     }
 
@@ -49,6 +46,8 @@ public class GetHTTPParcelas extends AsyncTask<Void, Void, String> {
     protected void onPostExecute(String s){
         super.onPostExecute(s);
         progressDialog.dismiss();
+        TreeDBHelper db = new TreeDBHelper(httpContext);
+        db.limpiaTabla("parcela");
 
         try {
             JSONObject jsonObject = new JSONObject(URLDecoder.decode(s, "UTF-8"));
@@ -70,14 +69,19 @@ public class GetHTTPParcelas extends AsyncTask<Void, Void, String> {
                 String longitud = jsonArray.getJSONObject(i).getString("ref_longitud");
                 if(longitud != null) refLongitud = Float.parseFloat(longitud);
 
-                this.httpList.add(new Parcela(idParcela, nombre, refLatitud, refLongitud, 0, 0, 0, 0, 0, 0, 0, 0));
+                //this.httpList.add(new Parcela(idParcela, nombre, refLatitud, refLongitud, 0, 0, 0, 0, 0, 0, 0, 0));
 
+                db.saveParcela(new Parcela(idParcela, nombre, refLatitud, refLongitud, 0, 0, 0, 0, 0, 0, 0, 0));
             }
-            httpAdapter = new ParcelaAdapter(this.httpList);
-            httpRecycler.setAdapter(this.httpAdapter);
+            //httpAdapter = new ParcelaAdapter(this.httpList);
+            //httpRecycler.setAdapter(this.httpAdapter);
 
-            String msg = String.valueOf(httpAdapter.getItemCount()) + " registros";
+            String msg = String.valueOf(jsonArray.length()) + " registros";
             Toast.makeText(httpContext, msg, Toast.LENGTH_SHORT).show();
+
+
+
+
         } catch (JSONException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
@@ -87,9 +91,9 @@ public class GetHTTPParcelas extends AsyncTask<Void, Void, String> {
 
     @Override
     protected String doInBackground(Void... voids) {
-        String  result = null;
+        String result = null;
         try {
-            String wsURL = "http://demos.hypergis.pe/alumnos/cvalenzuela/wsParcela.php?user=cvalenzuela@upc.edu.pe&format=json";
+            String wsURL = "http://demos.hypergis.pe/alumnos/cvalenzuela/wsParcela.php?user=" + userEmail + "&format=json";
             URL url = new URL(wsURL);
             HttpURLConnection urlCon = (HttpURLConnection)  url.openConnection();
             InputStream in = new BufferedInputStream(urlCon.getInputStream());

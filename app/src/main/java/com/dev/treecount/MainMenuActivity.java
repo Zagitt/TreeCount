@@ -82,6 +82,10 @@ public class MainMenuActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_parcela) {
+
+            Intent act = new Intent(this, ParcelaActivity.class);
+            startActivity(act);
+
             // Handle the camera action
         } else if (id == R.id.nav_brigada) {
             Intent act = new Intent(this, BrigadaActivity.class);
@@ -92,6 +96,8 @@ public class MainMenuActivity extends AppCompatActivity
         } else if (id == R.id.nav_sincronizar) {
 
         } else if (id == R.id.nav_salir) {
+
+        }else if(id== R.id.nav_descargar){
 
         }
 
