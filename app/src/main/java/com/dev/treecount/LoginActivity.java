@@ -19,11 +19,9 @@ import com.google.firebase.auth.FirebaseUser;
 public class LoginActivity extends AppCompatActivity {
 
     private static final String TAG = "LogApp";
-    //Declaracion de variables del xml
     private EditText txtLoginCorreo;
     private EditText txtLoginPassword;
     private Button btnIngresar;
-//    private Button btnRegistrar;
     private FirebaseAuth mAuth;
 
 
@@ -31,13 +29,11 @@ public class LoginActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
         mAuth = FirebaseAuth.getInstance();
 
         txtLoginCorreo = (EditText) findViewById(R.id.txtLoginCorreo);
         txtLoginPassword = (EditText) findViewById(R.id.txtLoginPassword);
         btnIngresar = (Button) findViewById(R.id.btnIngresar);
-//        btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
 
         btnIngresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -45,23 +41,8 @@ public class LoginActivity extends AppCompatActivity {
                 ValidarUsuario();
             }
         });
-
-        /*
-        btnRegistrar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                RegistrarUsuario();
-            }
-        }); */
-
     }
-/*
-    private void RegistrarUsuario() {
-        Intent act = new Intent(this, RegisterActivity.class);
-        startActivity(act);
-    }
-*/
-    //entra en el examen las validaciones 3pts
+
     private void ValidarUsuario() {
         if(txtLoginCorreo.getText().toString().isEmpty()){
             Toast.makeText(this, "Ingrese su Correo", Toast.LENGTH_SHORT).show();
@@ -103,24 +84,21 @@ public class LoginActivity extends AppCompatActivity {
 
                     }
                 });
-// [END sign_in_with_email]
-
-
-
+        // [END sign_in_with_email]
     }//fin validar
 
     private void updateUI(FirebaseUser user) {
         if(user != null){
             Intent act = new Intent(this, ParcelaActivity.class);
             startActivity(act);
-            //finish();
+            finish();
         }
     }
 
-    public void OnStart(){
+    @Override
+    public void onStart() {
         super.onStart();
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
     }
-
 }
