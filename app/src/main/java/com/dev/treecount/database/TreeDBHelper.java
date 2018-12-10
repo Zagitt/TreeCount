@@ -6,6 +6,8 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.dev.treecount.model.ArbolTipo;
+import com.dev.treecount.model.Inventario;
 import com.dev.treecount.model.Parcela;
 import com.dev.treecount.model.Person;
 import com.dev.treecount.model.Persona;
@@ -57,18 +59,33 @@ public class TreeDBHelper extends SQLiteOpenHelper {
                 "idarbol integer primary key," +
                 "nombre_comun varchar(45)," +
                 "nombre_cientifico varchar(45)," +
-                "idParcela varchar(45))");
+                "idParcela integer)");
 
         db.execSQL("create table if not exists inventario (" +
-                "idInventario integer primary key," +
+                "idInventario integer primary key autoincrement," +
                 "nom_cientifico varchar(45)," +
                 "nom_comun varchar(45)," +
                 "lat decimal(10,8)," +
-                "lon varchar(10,8)," +
+                "lon decimal(10,8)," +
                 "dap varchar(45)," +
                 "altura_fuste integer," +
                 "altura_total integer," +
                 "idParcela integer)");
+
+        onLoadInitialData(db);
+    }
+
+    private List<ArbolTipo> items = new ArrayList<>();
+
+    private void onLoadInitialData(SQLiteDatabase db) {
+        items.add(new ArbolTipo(1,"Pino Blanco", "Pinus albicaulis", 0));
+        items.add(new ArbolTipo(2,"Caoba Hondureña", "Swietenia macrophylla", 0));
+        items.add(new ArbolTipo(3,"Shihuahuaco", "Dipteryx micrantha", 0));
+        items.add(new ArbolTipo(4,"Algarrobo", "Ceratonia siliqua", 0));
+
+        for(ArbolTipo p: items){
+            db.insert("arbol", null, p.toContentValues());
+        }
     }
 
     @Override
@@ -112,6 +129,7 @@ public class TreeDBHelper extends SQLiteOpenHelper {
     }
 
 
+
     public List<Person> getPersonas(){
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.query("persona",
@@ -135,6 +153,63 @@ public class TreeDBHelper extends SQLiteOpenHelper {
             ));
         }
         return lista;
+    }
+
+    public List<ArbolTipo> getArbolesTipo(){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.query("arbol",
+                null,   //COlumnas a listar
+                null,   //Columnas en clausula WHERE
+                null,   //Valores de las columnas de la clausula WHERE
+                null,   //Group by - columnas
+                null,   //Condicion de agrupamiento
+                "nombre_comun"
+        );
+
+        List<ArbolTipo> lista = new ArrayList<>();
+        while(c.moveToNext()){
+            lista.add(new ArbolTipo(
+                    c.getInt(0), //idarbol
+                    c.getString(1), //nombre_comun
+                    c.getString(2),    //nombre_cientifico
+                    c.getInt(3) //idParcela
+            ));
+        }
+        return lista;
+    }
+
+    public List<Inventario> getInventario(int idParcela){
+        SQLiteDatabase db = getReadableDatabase();
+        String whereClause = "idParcela =?";
+        String[] whereArgs = {""+idParcela};
+        Cursor c = db.query("inventario",
+                null,
+                whereClause,
+                whereArgs,   //Columnas en clausula WHERE
+                   //Valores de las columnas de la clausula WHERE
+                null,   //Group by - columnas
+                null,   //Condicion de agrupamiento
+                "idInventario"
+        );
+
+        List<Inventario> lista = new ArrayList<>();
+        while(c.moveToNext()){
+            lista.add(new Inventario(
+                    c.getString(1), //nom_cientifico
+                    c.getString(2), //nom_comun
+                    c.getFloat(3),    //lat
+                    c.getFloat(4), //lon
+                    c.getString(5), //dap
+                    c.getInt(6), //altura_fuste
+                    c.getInt(7), //loaltura_totaln
+                    c.getInt(8) //idParcela
+            ));
+        }
+        return lista;
+    }
+    public void saveInventario(Inventario p) {
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert("inventario", null, p.toContentValues());
     }
 
     public void savePersona(Persona p){

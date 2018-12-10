@@ -1,219 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".DatosEspecieActivity">
 
-    <android.support.constraint.ConstraintLayout
+    <TextView
+        android:id="@+id/label_titulo_datos_especie"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <TextView
-            android:id="@+id/label_nombre_comun"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="89dp"
-            android:layout_marginEnd="33dp"
-            android:text="Nombre Común :"
-            app:layout_constraintEnd_toStartOf="@+id/txt_nombre_comun"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <EditText
-            android:id="@+id/txt_nombre_comun"
-            android:layout_width="0dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="27dp"
-            android:layout_marginEnd="57dp"
-            android:layout_marginBottom="31dp"
-            android:ems="10"
-            android:hint="nombre común"
-            android:inputType="textPersonName"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/label_nombre_scientifico"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/label_nombre_comun"
-            app:layout_constraintTop_toBottomOf="@+id/label_titulo_datos_especie" />
-
-        <TextView
-            android:id="@+id/label_nombre_scientifico"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="31dp"
-            android:layout_marginEnd="11dp"
-            android:text="Nombre Scientífico :"
-            app:layout_constraintEnd_toStartOf="@+id/txt_nombre_scientifico"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_nombre_comun" />
-
-        <EditText
-            android:id="@+id/txt_nombre_scientifico"
-            android:layout_width="0dp"
-            android:layout_height="33dp"
-            android:layout_marginTop="18dp"
-            android:layout_marginEnd="60dp"
-            android:layout_marginBottom="20dp"
-            android:ems="10"
-            android:hint="nombre scientifico"
-            android:inputType="textPersonName"
-            android:textSize="12sp"
-            app:layout_constraintBottom_toTopOf="@+id/txt_dap"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/label_nombre_scientifico"
-            app:layout_constraintTop_toBottomOf="@+id/txt_nombre_comun" />
-
-        <TextView
-            android:id="@+id/label_P2_coordenada"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="36dp"
-            android:text="DAP :"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_nombre_scientifico" />
-
-        <EditText
-            android:id="@+id/txt_dap"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="21dp"
-            android:ems="10"
-            android:hint="Diametro Altura Pecho"
-            android:inputType="textPersonName"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/txt_nombre_scientifico"
-            app:layout_constraintTop_toBottomOf="@+id/label_nombre_scientifico" />
-
-        <TextView
-            android:id="@+id/label_altura_fuste"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="36dp"
-            android:text="Altura Fuste :"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_P2_coordenada" />
-
-        <EditText
-            android:id="@+id/txt_altura_fuste"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:ems="10"
-            android:hint="altura fuste"
-            android:inputType="textPersonName"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/txt_dap"
-            app:layout_constraintTop_toBottomOf="@+id/txt_dap" />
-
-        <TextView
-            android:id="@+id/label_altura_total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
-            android:layout_marginTop="40dp"
-            android:text="Altura Total :"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_altura_fuste" />
-
-        <EditText
-            android:id="@+id/txt_altura_total"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:ems="10"
-            android:hint="altura total"
-            android:inputType="textPersonName"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/txt_altura_fuste"
-            app:layout_constraintTop_toBottomOf="@+id/txt_altura_fuste" />
-
-        <TextView
-            android:id="@+id/label_latitud"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="36dp"
-            android:text="Latitud"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/label_altura_total" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="21dp"
-            android:layout_marginBottom="20dp"
-            android:text="Longitud"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/txt_longitud" />
-
-        <EditText
-            android:id="@+id/txt_latitud"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
-            android:ems="10"
-            android:hint="latitud"
-            android:inputType="numberDecimal"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/txt_altura_total"
-            app:layout_constraintTop_toBottomOf="@+id/txt_altura_total" />
-
-        <EditText
-            android:id="@+id/txt_longitud"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:ems="10"
-            android:hint="longitud"
-            android:inputType="numberDecimal"
-            android:textSize="14sp"
-            app:layout_constraintStart_toStartOf="@+id/txt_latitud"
-            app:layout_constraintTop_toBottomOf="@+id/txt_latitud" />
-
-
-        <TextView
-            android:id="@+id/label_titulo_datos_especie"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:text="Datos de la Especie"
-            android:gravity="center"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-    </android.support.constraint.ConstraintLayout>
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Datos de la Especie"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_weight="10"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
+        <TextView
+            android:id="@+id/label_nombre_comun"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:text="Nombre Común :"
+            android:layout_margin="5dp"/>
 
-        <Button
-            android:id="@+id/btnNuevoArbol"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_margin="10dp"
-            android:layout_weight="5"
-            android:text="REGISTRAR" />
+        <Spinner
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:id="@+id/spn_nombre_comun">
+        </Spinner>
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="10"
+        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/label_P2_coordenada"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:text="DAP :"
+            android:layout_margin="5dp"/>
+
+        <EditText
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:id="@+id/txt_dap">
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/label_altura_fuste"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:text="Altura Fuste :"
+            android:layout_margin="5dp"/>
+
+        <EditText
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:inputType="numberDecimal"
+            android:padding="5dp"
+            android:id="@+id/txt_altura_fuste">
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/label_altura_total"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:text="Altura Total :"
+            android:layout_margin="5dp"/>
+
+        <EditText
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:inputType="numberDecimal"
+            android:id="@+id/txt_altura_total">
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/label_latitud"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:text="Latitud :"
+            android:layout_margin="5dp"/>
+
+        <EditText
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:id="@+id/txt_latitud">
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/label_longitud"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:text="Longitud :"
+            android:layout_margin="5dp"/>
+
+        <EditText
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:padding="5dp"
+            android:inputType="numberDecimal|numberSigned"
+            android:id="@+id/txt_longitud">
+        </EditText>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
         <EditText
@@ -231,4 +174,23 @@
             android:text=""
             android:visibility="invisible"/>
     </LinearLayout>
-</RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_weight="10"
+        android:layout_alignParentBottom="true"
+        android:inputType="numberDecimal"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnNuevoArbol"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_weight="5"
+            android:text="REGISTRAR" />
+    </LinearLayout>
+
+</LinearLayout>
