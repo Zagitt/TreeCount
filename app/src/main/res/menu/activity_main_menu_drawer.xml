@@ -33,9 +33,9 @@
                 android:title="Descargar Información" />
 
             <item
-                android:id="@+id/nav_sincronizar"
-                android:icon="@drawable/ic_menu_inventario"
-                android:title="Sincronizar" />
+                android:id="@+id/nav_cerrar_sesion"
+                android:icon="@drawable/ic_menu_manage"
+                android:title="Cerrar Sesión" />
 
             <item
                 android:id="@+id/nav_salir"
