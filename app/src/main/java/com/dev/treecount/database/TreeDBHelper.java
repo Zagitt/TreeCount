@@ -1,11 +1,14 @@
 package com.dev.treecount.database;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import com.dev.treecount.model.Parcela;
+import com.dev.treecount.model.Person;
+import com.dev.treecount.model.Persona;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,8 +38,16 @@ public class TreeDBHelper extends SQLiteOpenHelper {
                    "p4_latitud decimal(11,8)," +
                    "p4_longitud decimal(11,8)," +
                    "departamento varchar(45)," +
-                   "idBrigada integer, " +
+                   "idBrigada integer," +
                    "brigadaNombre varchar(45))");
+
+        db.execSQL("create table if not exists persona (" +
+                "idPersona varchar(45) primary key," +
+                "nombre varchar(45)," +
+                "apellido varchar(45)," +
+                "dni varchar(10)," +
+                "cargo varchar(45)," +
+                "idBrigada integer)");
 
         db.execSQL("create table if not exists brigada (" +
                    "idBrigada integer primary key," +
@@ -55,7 +66,7 @@ public class TreeDBHelper extends SQLiteOpenHelper {
 
     public void saveParcela(Parcela p){
         SQLiteDatabase db = getWritableDatabase();
-        db.insert("parcela", null, p.toContentValues());
+        db.insert("parcela", null,p.toContentValues());
     }
 
     public List<Parcela> getParcelas() {
@@ -84,5 +95,8 @@ public class TreeDBHelper extends SQLiteOpenHelper {
         return lista;
     }
 
-
+    public void savePersona(Persona p){
+        SQLiteDatabase db = getWritableDatabase();
+        db.insert("persona", null, p.toContentValues());
+    }
 }

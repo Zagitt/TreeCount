@@ -1,13 +1,16 @@
 package com.dev.treecount.services;
 
 import android.app.ProgressDialog;
+import android.content.ContentValues;
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.AsyncTask;
 import android.widget.Toast;
 
 import com.dev.treecount.R;
 import com.dev.treecount.database.TreeDBHelper;
 import com.dev.treecount.model.Parcela;
+import com.dev.treecount.model.Persona;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
@@ -24,10 +27,13 @@ import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.List;
 
 public class GetHTTPTree extends AsyncTask<Void, Void, String> {
     private Context httpContext;
     ProgressDialog progressDialog;
+    private List<Persona> personas = new ArrayList<>();
 
     FirebaseUser currentUser = FirebaseAuth.getInstance().getCurrentUser();
     String userEmail = currentUser.getEmail();
@@ -53,7 +59,6 @@ public class GetHTTPTree extends AsyncTask<Void, Void, String> {
             JSONObject jsonObject = new JSONObject(URLDecoder.decode(s, "UTF-8"));
             JSONArray jsonArray = jsonObject.getJSONArray("parcelas");
             for (int i=0; i<jsonArray.length();i++){
-
                 float refLatitud  = 0;
                 float refLongitud = 0;
                 float p1Latitud = 0;
@@ -104,13 +109,43 @@ public class GetHTTPTree extends AsyncTask<Void, Void, String> {
             e.printStackTrace();
         }
 
+        db.limpiaTabla("persona");
+        try {
+            JSONObject jsonObject = new JSONObject(URLDecoder.decode(s, "UTF-8"));
+            JSONArray jsonArray = jsonObject.getJSONArray("personas");
+            for (int i=0; i<jsonArray.length();i++){
+                String idPersona = jsonArray.getJSONObject(i).getString("idPersona");
+                String nombre = jsonArray.getJSONObject(i).getString("nombre");
+                String apellido = jsonArray.getJSONObject(i).getString("apellido");
+                String dni = jsonArray.getJSONObject(i).getString("dni");
+                String cargo = jsonArray.getJSONObject(i).getString("cargo");
+                int idBrigada = Integer.parseInt(jsonArray.getJSONObject(i).getString("idBrigada"));
+
+                //personas.add(new Persona(idPersona, nombre, apellido, dni, cargo, idBrigada));
+                db.savePersona(new Persona(idPersona, nombre, apellido, dni, cargo, idBrigada));
+
+
+            }
+            /*
+            for (Persona p:personas) {
+                db.savePersona(p);
+            }
+            */
+
+            String msg = String.valueOf(jsonArray.length()) + " registros de personas";
+            Toast.makeText(httpContext, msg, Toast.LENGTH_SHORT).show();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
     protected String doInBackground(Void... voids) {
         String result = null;
         try {
-            String wsURL = "http://demos.hypergis.pe/alumnos/cvalenzuela/wsParcela.php?user=" + userEmail + "&format=json";
+            String wsURL = "http://demos.hypergis.pe/alumnos/cvalenzuela/wsTreeCount.php?user=" + userEmail + "&format=json";
             URL url = new URL(wsURL);
             HttpURLConnection urlCon = (HttpURLConnection)  url.openConnection();
             InputStream in = new BufferedInputStream(urlCon.getInputStream());
