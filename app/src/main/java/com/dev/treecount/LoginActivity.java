@@ -1,7 +1,6 @@
 package com.dev.treecount;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -11,8 +10,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.dev.treecount.database.TreeDBHelper;
-import com.dev.treecount.services.GetHTTPParcelas;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -91,11 +88,6 @@ public class LoginActivity extends AppCompatActivity {
 
     private void updateUI(FirebaseUser user) {
         if(user != null){
-            // Temporalmente aquí hasta ponerlo en su sitio
-            String userEmail = user.getEmail();
-
-            CargarDatos(userEmail);
-
             Intent act = new Intent(this, MainMenuActivity.class);
             startActivity(act);
             finish();
@@ -109,8 +101,4 @@ public class LoginActivity extends AppCompatActivity {
         updateUI(currentUser);
     }
 
-    private void CargarDatos(String userEmail) {
-        GetHTTPParcelas ws = new GetHTTPParcelas(userEmail, this);
-        ws.execute();
-    }
 }

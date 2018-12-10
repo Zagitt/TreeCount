@@ -75,7 +75,10 @@ public class TreeDBHelper extends SQLiteOpenHelper {
                     c.getFloat(8),   // p3_latitud
                     c.getFloat(9),   // p3_longitud
                     c.getFloat(10),  // p4_latitud
-                    c.getFloat(11)   // p4_longitud
+                    c.getFloat(11),  // p4_longitud
+                    c.getString(12), // departamento
+                    c.getInt(13),    // idBrigada
+                    c.getString(14)  // brigadaNombre
             ));
         }
         return lista;

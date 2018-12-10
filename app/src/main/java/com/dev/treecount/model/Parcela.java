@@ -15,12 +15,14 @@ public class Parcela {
     private float p3Longitud;
     private float p4Latitud;
     private float p4Longitud;
+    private String departamento;
+    private int idBrigada;
     private String brigadaNombre;
 
     public Parcela() {
     }
 
-    public Parcela(int idParcela, String nombre, float refLatitud, float refLongitud, float p1Latitud, float p1Longitud, float p2Latitud, float p2Longitud, float p3Latitud, float p3Longitud, float p4Latitud, float p4Longitud) {
+    public Parcela(int idParcela, String nombre, float refLatitud, float refLongitud, float p1Latitud, float p1Longitud, float p2Latitud, float p2Longitud, float p3Latitud, float p3Longitud, float p4Latitud, float p4Longitud, String departamento, int idBrigada, String brigadaNombre) {
         this.idParcela = idParcela;
         this.nombre = nombre;
         this.refLatitud = refLatitud;
@@ -33,6 +35,9 @@ public class Parcela {
         this.p3Longitud = p3Longitud;
         this.p4Latitud = p4Latitud;
         this.p4Longitud = p4Longitud;
+        this.departamento = departamento;
+        this.idBrigada = idBrigada;
+        this.brigadaNombre = brigadaNombre;
     }
 
     public int getIdParcela() { return idParcela; }
@@ -83,6 +88,14 @@ public class Parcela {
 
     public void setP4Longitud(float p4Longitud) { this.p4Longitud = p4Longitud; }
 
+    public String getDepartamento() { return departamento; }
+
+    public void setDepartamento(String departamento) { this.departamento = departamento; }
+
+    public int getIdBrigada() { return idBrigada; }
+
+    public void setIdBrigada(int idBrigada) { this.idBrigada = idBrigada; }
+
     public String getBrigadaNombre() { return brigadaNombre; }
 
     public void setBrigadaNombre(String brigadaNombre) { this.brigadaNombre = brigadaNombre; }
@@ -101,8 +114,8 @@ public class Parcela {
         values.put("p3_longitud", getP3Longitud());
         values.put("p4_latitud", getP4Latitud());
         values.put("p4_longitud", getP4Longitud());
-        values.put("departamento", "");
-        values.put("idBrigada", 0);
+        values.put("departamento", getDepartamento());
+        values.put("idBrigada", getIdBrigada());
         values.put("brigadaNombre", getBrigadaNombre());
         return values;
     }

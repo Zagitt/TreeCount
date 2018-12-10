@@ -14,6 +14,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.dev.treecount.services.GetHTTPTree;
+
 public class MainMenuActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -97,8 +99,9 @@ public class MainMenuActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_salir) {
 
-        }else if(id== R.id.nav_descargar){
-
+        } else if(id== R.id.nav_descargar) {
+            GetHTTPTree ws = new GetHTTPTree(this);
+            ws.execute();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

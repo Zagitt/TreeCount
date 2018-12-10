@@ -8,7 +8,6 @@ import android.support.v7.widget.RecyclerView;
 import com.dev.treecount.adapter.ParcelaAdapter;
 import com.dev.treecount.database.TreeDBHelper;
 import com.dev.treecount.model.Parcela;
-import com.dev.treecount.services.GetHTTPParcelas;
 
 import java.util.ArrayList;
 import java.util.List;
