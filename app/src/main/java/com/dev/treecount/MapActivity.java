@@ -31,6 +31,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
 
         double pLatitud = getIntent().getExtras().getDouble("reflatitud");
         double pLongitud = getIntent().getExtras().getDouble("refLongitud");
+
         // Add a marker in Sydney and move the camera
         LatLng sydney = new LatLng(pLatitud, pLongitud);
 

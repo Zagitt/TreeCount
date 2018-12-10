@@ -7,8 +7,8 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <uses-feature
         android:name="android.hardware.camera"
@@ -32,7 +32,9 @@
         </provider>
 
         <activity android:name=".MainActivity" />
-        <activity android:name=".BrigadaActivity" />
+        <activity
+            android:name=".BrigadaActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".LoginActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -42,7 +44,6 @@
         </activity>
         <activity
             android:name=".MainMenuActivity"
-            android:label="@string/title_activity_main_menu"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".DatosEspecieActivity" />
         <activity android:name=".ParcelaActivity" />
@@ -50,12 +51,14 @@
             android:name=".DatosParcelaActivity"
             android:label="@string/activity_detalles" />
         <activity
-            android:name=".DetalleMiembroActivity"
-            android:label="@string/title_activity_detalle_miembro" />
+            android:name=".DetalleMiembroActivity"/>
         <activity
-            android:name=".InventarioParcelaActivity"
-            android:label="@string/title_activity_inventario_parcela" />
-        <activity android:name=".MapActivity"></activity>
+            android:name=".InventarioParcelaActivity"/>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+        <activity android:name=".MapActivity" />
     </application>
 
 </manifest>
