@@ -2,6 +2,7 @@ package com.dev.treecount;
 
 import android.Manifest;
 import android.content.ContentValues;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -42,6 +43,7 @@ public class DatosParcelaActivity extends AppCompatActivity {
     private LinearLayout lnlProgress;
 
     private Button btnGuardar;
+    private Button btnMostrarMapa;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,6 +77,7 @@ public class DatosParcelaActivity extends AppCompatActivity {
         txtLatitud4 = (EditText) findViewById(R.id.txtLatitud4);
 
         btnGuardar = (Button) findViewById(R.id.btnGuardar);
+        btnMostrarMapa = (Button) findViewById(R.id.btnMostrarMapa);
 
         btnAdd1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -115,6 +118,36 @@ public class DatosParcelaActivity extends AppCompatActivity {
                 GuardaParcela();
             }
         });
+
+        btnMostrarMapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MostrarMapa();
+            }
+        });
+
+    }
+
+    private void MostrarMapa() {
+        if (txtLatitud1.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese latitud", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (txtLongitud1.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese longitud", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        double pLatitud = Double.parseDouble(txtLatitud1.getText().toString());
+        double pLongitud = Double.parseDouble(txtLongitud1.getText().toString());
+
+        // Crear paquete de datos
+        Bundle bundle = new Bundle();
+        bundle.putDouble("pLatitud", pLatitud);
+        bundle.putDouble("pLongitud", pLongitud);
+
+        Intent activity = new Intent(this, MapActivity.class);
+        activity.putExtras(bundle);
+        startActivity(activity);
     }
 
     private void GuardaParcela() {
