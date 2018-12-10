@@ -40,6 +40,19 @@ public class Parcela {
         this.brigadaNombre = brigadaNombre;
     }
 
+    public Parcela(float refLatitud, float refLongitud, float p1Latitud, float p1Longitud, float p2Latitud, float p2Longitud, float p3Latitud, float p3Longitud, float p4Latitud, float p4Longitud) {
+        this.refLatitud = refLatitud;
+        this.refLongitud = refLongitud;
+        this.p1Latitud = p1Latitud;
+        this.p1Longitud = p1Longitud;
+        this.p2Latitud = p2Latitud;
+        this.p2Longitud = p2Longitud;
+        this.p3Latitud = p3Latitud;
+        this.p3Longitud = p3Longitud;
+        this.p4Latitud = p4Latitud;
+        this.p4Longitud = p4Longitud;
+    }
+
     public int getIdParcela() { return idParcela; }
 
     public void setIdParcela(int idParcela) { this.idParcela = idParcela; }

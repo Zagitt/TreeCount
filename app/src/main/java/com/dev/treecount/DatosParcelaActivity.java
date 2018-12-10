@@ -44,6 +44,7 @@ public class DatosParcelaActivity extends AppCompatActivity {
 
     private Button btnGuardar;
     private Button btnMostrarMapa;
+    Gson gson = new Gson();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,15 +67,23 @@ public class DatosParcelaActivity extends AppCompatActivity {
 
         // Longitudes
         txtLongitud1 = (EditText) findViewById(R.id.txtLongitud1);
+        txtLongitud1.setText(Float.toString(parcela.getP1Longitud()));
         txtLongitud2 = (EditText) findViewById(R.id.txtLongitud2);
+        txtLongitud2.setText(Float.toString(parcela.getP2Longitud()));
         txtLongitud3 = (EditText) findViewById(R.id.txtLongitud3);
+        txtLongitud3.setText(Float.toString(parcela.getP3Longitud()));
         txtLongitud4 = (EditText) findViewById(R.id.txtLongitud4);
+        txtLongitud4.setText(Float.toString(parcela.getP4Longitud()));
 
         // Latitudes
         txtLatitud1 = (EditText) findViewById(R.id.txtLatitud1);
+        txtLatitud1.setText(Float.toString(parcela.getP1Latitud()));
         txtLatitud2 = (EditText) findViewById(R.id.txtLatitud2);
+        txtLatitud2.setText(Float.toString(parcela.getP2Latitud()));
         txtLatitud3 = (EditText) findViewById(R.id.txtLatitud3);
+        txtLatitud3.setText(Float.toString(parcela.getP3Latitud()));
         txtLatitud4 = (EditText) findViewById(R.id.txtLatitud4);
+        txtLatitud4.setText(Float.toString(parcela.getP4Latitud()));
 
         btnGuardar = (Button) findViewById(R.id.btnGuardar);
         btnMostrarMapa = (Button) findViewById(R.id.btnMostrarMapa);
@@ -130,23 +139,54 @@ public class DatosParcelaActivity extends AppCompatActivity {
 
     private void MostrarMapa() {
         if (txtLatitud1.getText().toString().isEmpty()){
-            Toast.makeText(this, "Ingrese latitud", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Ingrese coordenada 1: latitud", Toast.LENGTH_SHORT).show();
+            return;
+        }else if (txtLongitud1.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 1: longitud", Toast.LENGTH_SHORT).show();
             return;
         }
-        if (txtLongitud1.getText().toString().isEmpty()){
-            Toast.makeText(this, "Ingrese longitud", Toast.LENGTH_SHORT).show();
+        if (txtLatitud2.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 2: latitud", Toast.LENGTH_SHORT).show();
+            return;
+        }else if (txtLongitud2.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 2: longitud", Toast.LENGTH_SHORT).show();
             return;
         }
-        double pLatitud = Double.parseDouble(txtLatitud1.getText().toString());
-        double pLongitud = Double.parseDouble(txtLongitud1.getText().toString());
+        if (txtLatitud3.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 3: latitud", Toast.LENGTH_SHORT).show();
+            return;
+        }else if (txtLongitud3.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 3: longitud", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        if (txtLatitud4.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 4: latitud", Toast.LENGTH_SHORT).show();
+            return;
+        }else if (txtLongitud4.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 4: longitud", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        float refLatitud = parcela.getRefLatitud();
+        float refLongitud = parcela.getRefLongitud();
+        float pLatitud1 = Float.parseFloat(txtLatitud1.getText().toString());
+        float pLongitud1 = Float.parseFloat(txtLongitud1.getText().toString());
+        float pLatitud2 = Float.parseFloat(txtLatitud2.getText().toString());
+        float pLongitud2 = Float.parseFloat(txtLongitud2.getText().toString());
+        float pLatitud3 = Float.parseFloat(txtLatitud3.getText().toString());
+        float pLongitud3 = Float.parseFloat(txtLongitud3.getText().toString());
+        float pLatitud4 = Float.parseFloat(txtLatitud4.getText().toString());
+        float pLongitud4 = Float.parseFloat(txtLongitud4.getText().toString());
 
         // Crear paquete de datos
-        Bundle bundle = new Bundle();
-        bundle.putDouble("pLatitud", pLatitud);
-        bundle.putDouble("pLongitud", pLongitud);
+        //Bundle bundle = new Bundle();
+        //bundle.putDouble("pLatitud", pLatitud);
+        //bundle.putDouble("pLongitud", pLongitud);
+
+        Parcela parcelaParms = new Parcela(refLatitud,refLongitud,pLatitud1, pLongitud1, pLatitud2, pLongitud2, pLatitud3, pLongitud3, pLatitud4, pLongitud4);
 
         Intent activity = new Intent(this, MapActivity.class);
-        activity.putExtras(bundle);
+        activity.putExtra("parcela", gson.toJson(parcelaParms));
+        //activity.putExtras(bundle);
         startActivity(activity);
     }
 
@@ -155,22 +195,69 @@ public class DatosParcelaActivity extends AppCompatActivity {
         float txtLatitud;
         float txtLongitud;
 
-        if(txtLatitud1.getText().toString().isEmpty()) txtLatitud = 1; else txtLatitud = Float.parseFloat(txtLatitud1.getText().toString());
-        values.put("p1_latitud", txtLatitud);
-        if(txtLongitud1.getText().toString().isEmpty()) txtLongitud = 1; else txtLongitud = Float.parseFloat(txtLongitud1.getText().toString());
-        values.put("p1_longitud", txtLongitud);
-        if(txtLatitud2.getText().toString().isEmpty()) txtLatitud = 1; else txtLatitud = Float.parseFloat(txtLatitud2.getText().toString());
-        values.put("p2_latitud", txtLatitud);
-        if(txtLongitud2.getText().toString().isEmpty()) txtLongitud = 1; else txtLongitud = Float.parseFloat(txtLongitud2.getText().toString());
-        values.put("p2_longitud", txtLongitud);
-        if(txtLatitud3.getText().toString().isEmpty()) txtLatitud = 1; else txtLatitud = Float.parseFloat(txtLatitud3.getText().toString());
-        values.put("p3_latitud", txtLatitud);
-        if(txtLongitud3.getText().toString().isEmpty()) txtLongitud = 1; else txtLongitud = Float.parseFloat(txtLongitud3.getText().toString());
-        values.put("p3_longitud", txtLongitud);
-        if(txtLatitud4.getText().toString().isEmpty()) txtLatitud = 1; else txtLatitud = Float.parseFloat(txtLatitud4.getText().toString());
-        values.put("p4_latitud", txtLatitud);
-        if(txtLongitud4.getText().toString().isEmpty()) txtLongitud = 1; else txtLongitud = Float.parseFloat(txtLongitud4.getText().toString());
-        values.put("p4_longitud", txtLongitud);
+
+        values.put("nombre", parcela.getNombre());
+        values.put("ref_latitud", parcela.getRefLatitud());
+        values.put("ref_longitud", parcela.getRefLongitud());
+        values.put("departamento", parcela.getDepartamento());
+        values.put("idBrigada", parcela.getIdBrigada());
+        values.put("brigadaNombre", parcela.getIdBrigada());
+        if(txtLatitud1.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 1: latitud", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
+            txtLatitud = Float.parseFloat(txtLatitud1.getText().toString());
+            values.put("p1_latitud", txtLatitud);
+        }
+        if(txtLongitud1.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 1: longitud", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
+            txtLongitud = Float.parseFloat(txtLongitud1.getText().toString());
+            values.put("p1_longitud", txtLongitud);
+        }
+        if(txtLatitud2.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 2: latitud", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
+            txtLatitud = Float.parseFloat(txtLatitud2.getText().toString());
+            values.put("p2_latitud", txtLatitud);
+        }
+        if(txtLongitud2.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 2: longitud", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
+            txtLongitud = Float.parseFloat(txtLongitud2.getText().toString());
+            values.put("p2_longitud", txtLongitud);
+        }
+        if(txtLatitud3.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 3: latitud", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
+            txtLatitud = Float.parseFloat(txtLatitud3.getText().toString());
+            values.put("p3_latitud", txtLatitud);
+        }
+        if(txtLongitud3.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 3: longitud", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
+            txtLongitud = Float.parseFloat(txtLongitud3.getText().toString());
+            values.put("p3_longitud", txtLongitud);
+        }
+        if(txtLatitud4.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 4: latitud", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
+            txtLatitud = Float.parseFloat(txtLatitud4.getText().toString());
+            values.put("p4_latitud", txtLatitud);
+        }
+        if(txtLongitud4.getText().toString().isEmpty()){
+            Toast.makeText(this, "Ingrese coordenada 4: longitud", Toast.LENGTH_SHORT).show();
+            return;
+        }else {
+            txtLongitud = Float.parseFloat(txtLongitud4.getText().toString());
+            values.put("p4_longitud", txtLongitud);
+        }
 
         TreeDBHelper db = new TreeDBHelper(this);
         db.updateParcela(values, parcela.getIdParcela());

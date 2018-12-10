@@ -63,12 +63,14 @@ public class BrigadaActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.btn_bienvenido);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+/*                Snackbar.make(view, "Bienvenido", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();*/
+                Intent act = new Intent(view.getContext(), ParcelaActivity.class);
+                startActivity(act);
             }
         });
 
@@ -121,7 +123,6 @@ public class BrigadaActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_parcela) {
-
             Intent act = new Intent(this, ParcelaActivity.class);
             startActivity(act);
 
@@ -132,9 +133,16 @@ public class BrigadaActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_estadisticas) {
 
-        } else if (id == R.id.nav_sincronizar) {
+        } else if (id == R.id.nav_cerrar_sesion) {
+            LoginActivity login = new LoginActivity();
+            login.cerrarSesion();
+            Intent act = new Intent(this, LoginActivity.class);
+            startActivity(act);
+
 
         } else if (id == R.id.nav_salir) {
+            this.finishAffinity();
+
 
         } else if(id== R.id.nav_descargar) {
             GetHTTPTree ws = new GetHTTPTree(this);
