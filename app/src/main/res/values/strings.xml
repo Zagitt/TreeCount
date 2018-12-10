@@ -10,4 +10,6 @@
     <string name="popMsgMensaje">Por favor, espere...</string>
     <string name="app_name">TreeCount</string>
     <string name="activity_detalles">Detalles de la Parcela</string>
+    <string name="title_activity_detalle_miembro">DetalleMiembroActivity</string>
+    <string name="title_activity_inventario_parcela">InventarioParcelaActivity</string>
 </resources>

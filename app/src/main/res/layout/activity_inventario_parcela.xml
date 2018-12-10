@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="horizontal"
-    tools:context=".BrigadaActivity">
+    tools:context=".InventarioParcelaActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,7 +20,7 @@
 
             android:layout_height="wrap_content"
             android:padding="5dp"
-            android:text="Miembros de la Brigada"
+            android:text="Inventario de Árboles"
             android:textStyle="bold"
             android:gravity="center"
             android:textSize="18dp"
@@ -46,17 +47,38 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_weight="10"
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/txtIdParcela"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text=""
+            android:visibility="invisible"/>
+        <EditText
+            android:id="@+id/txtIdBrigada"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="5"
+            android:text=""
+            android:visibility="invisible"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_weight="10"
         android:layout_alignParentBottom="true"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/btnParcelas"
+            android:id="@+id/btnNuevoArbol"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
             android:layout_weight="5"
-            android:text="VER PARCELAS ASIGNADAS" />
+            android:text="NUEVO ÁRBOL" />
     </LinearLayout>
 </RelativeLayout>

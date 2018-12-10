@@ -49,6 +49,14 @@
         <activity
             android:label="@string/activity_detalles"
             android:name=".DatosParcelaActivity"></activity>
+        <activity
+            android:name=".DetalleMiembroActivity"
+            android:label="@string/title_activity_detalle_miembro"></activity>
+
+
+        <activity
+            android:name=".InventarioParcelaActivity"
+            android:label="@string/title_activity_inventario_parcela"></activity>
     </application>
 
 </manifest>

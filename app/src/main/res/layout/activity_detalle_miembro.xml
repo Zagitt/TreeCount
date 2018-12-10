@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardCornerRadius="5dp"
-    android:layout_margin="10dp"
-    android:id="@+id/personCardView">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetalleMiembroActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,8 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:src="@drawable/face01"
-            android:padding="5dp"/>
+            android:padding="5dp"
+            android:id="@+id/imgFoto"/>
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -28,7 +29,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="5dp"
-                android:text="Nombre"
+                android:text="Miembro: "
                 android:textStyle="bold"
                 android:textSize="18dp"
                 android:id="@+id/lblNombre"/>
@@ -43,18 +44,20 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Cargo"
+                android:text="Edad"
                 android:padding="5dp"
-                android:id="@+id/lblCargo"/>
+                android:id="@+id/txtEdad"/>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="N° de Brigada: "
-                android:padding="5dp"
-                android:id="@+id/lblBrigada"/>
+                android:text="Información personal"
+                android:textStyle="bold"
+                android:id="@+id/lblBiografia"
+                android:layout_margin="5dp" />
 
         </LinearLayout>
 
     </LinearLayout>
 
-</android.support.v7.widget.CardView>
+</LinearLayout>
