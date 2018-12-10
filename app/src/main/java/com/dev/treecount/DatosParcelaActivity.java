@@ -1,6 +1,7 @@
 package com.dev.treecount;
 
 import android.Manifest;
+import android.content.ContentValues;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.location.LocationListener;
@@ -10,11 +11,13 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.dev.treecount.database.TreeDBHelper;
 import com.dev.treecount.model.Parcela;
 import com.dev.treecount.util.GeoLocation;
 import com.google.gson.Gson;
@@ -22,26 +25,23 @@ import com.google.gson.Gson;
 public class DatosParcelaActivity extends AppCompatActivity {
     private GeoLocation geoLocation;
     private Parcela parcela;
-    private int actualBox = 1;
 
     // BOX 1
     private EditText txtLatitud1;
     private EditText txtLongitud1;
-
     // BOX 2
     private EditText txtLatitud2;
     private EditText txtLongitud2;
-
     // BOX 3
     private EditText txtLatitud3;
     private EditText txtLongitud3;
-
     // BOX 4
     private EditText txtLatitud4;
     private EditText txtLongitud4;
-
     // Progress
     private LinearLayout lnlProgress;
+
+    private Button btnGuardar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,11 +74,11 @@ public class DatosParcelaActivity extends AppCompatActivity {
         txtLatitud3 = (EditText) findViewById(R.id.txtLatitud3);
         txtLatitud4 = (EditText) findViewById(R.id.txtLatitud4);
 
+        btnGuardar = (Button) findViewById(R.id.btnGuardar);
+
         btnAdd1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                actualBox = 1;
-                //refreshLocation();
                 geoLocation.getTextCoordinates(txtLongitud1, txtLatitud1, null, null);
             }
         });
@@ -86,8 +86,6 @@ public class DatosParcelaActivity extends AppCompatActivity {
         btnAdd2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                actualBox = 2;
-                //refreshLocation();
                 geoLocation.getTextCoordinates(txtLongitud2, txtLatitud2, null, null);
             }
         });
@@ -95,8 +93,6 @@ public class DatosParcelaActivity extends AppCompatActivity {
         btnAdd3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                actualBox = 3;
-                //refreshLocation();
                 geoLocation.getTextCoordinates(txtLongitud3, txtLatitud3, null, null);
             }
         });
@@ -104,8 +100,6 @@ public class DatosParcelaActivity extends AppCompatActivity {
         btnAdd4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                actualBox = 4;
-                //refreshLocation();
                 geoLocation.getTextCoordinates(txtLongitud4, txtLatitud4, null, null);
             }
         });
@@ -115,8 +109,42 @@ public class DatosParcelaActivity extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
 
+        btnGuardar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                GuardaParcela();
+            }
+        });
     }
 
+    private void GuardaParcela() {
+        ContentValues values = new ContentValues();
+        float txtLatitud;
+        float txtLongitud;
+
+        if(txtLatitud1.getText().toString().isEmpty()) txtLatitud = 1; else txtLatitud = Float.parseFloat(txtLatitud1.getText().toString());
+        values.put("p1_latitud", txtLatitud);
+        if(txtLongitud1.getText().toString().isEmpty()) txtLongitud = 1; else txtLongitud = Float.parseFloat(txtLongitud1.getText().toString());
+        values.put("p1_longitud", txtLongitud);
+        if(txtLatitud2.getText().toString().isEmpty()) txtLatitud = 1; else txtLatitud = Float.parseFloat(txtLatitud2.getText().toString());
+        values.put("p2_latitud", txtLatitud);
+        if(txtLongitud2.getText().toString().isEmpty()) txtLongitud = 1; else txtLongitud = Float.parseFloat(txtLongitud2.getText().toString());
+        values.put("p2_longitud", txtLongitud);
+        if(txtLatitud3.getText().toString().isEmpty()) txtLatitud = 1; else txtLatitud = Float.parseFloat(txtLatitud3.getText().toString());
+        values.put("p3_latitud", txtLatitud);
+        if(txtLongitud3.getText().toString().isEmpty()) txtLongitud = 1; else txtLongitud = Float.parseFloat(txtLongitud3.getText().toString());
+        values.put("p3_longitud", txtLongitud);
+        if(txtLatitud4.getText().toString().isEmpty()) txtLatitud = 1; else txtLatitud = Float.parseFloat(txtLatitud4.getText().toString());
+        values.put("p4_latitud", txtLatitud);
+        if(txtLongitud4.getText().toString().isEmpty()) txtLongitud = 1; else txtLongitud = Float.parseFloat(txtLongitud4.getText().toString());
+        values.put("p4_longitud", txtLongitud);
+
+        TreeDBHelper db = new TreeDBHelper(this);
+        db.updateParcela(values, parcela.getIdParcela());
+        Toast.makeText(this, "Registro guardado satisfactoriamente!", Toast.LENGTH_SHORT).show();
+    }
+
+    /*
     private final LocationListener mLocationListener = new LocationListener() {
         @Override
         public void onLocationChanged(final Location location) {
@@ -139,6 +167,7 @@ public class DatosParcelaActivity extends AppCompatActivity {
 
         }
     };
+    */
 
     public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
@@ -151,16 +180,13 @@ public class DatosParcelaActivity extends AppCompatActivity {
         }
     }
 
+    /*
     private void refreshLocation(){
 
         lnlProgress.setVisibility(View.VISIBLE);
 
-        /*
         geoLocation.getTextCoordinates(txtLongitud, txtLatitud, null, null);
-        */
 
-
-       /*
         LocationManager mLocationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
 
         if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED &&
@@ -170,8 +196,6 @@ public class DatosParcelaActivity extends AppCompatActivity {
             mLocationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, mLocationListener);
         }
 
-
-
         final Location location = mLocationManager.getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 
         new Handler().postDelayed(new Runnable() {
@@ -179,11 +203,12 @@ public class DatosParcelaActivity extends AppCompatActivity {
             public void run() {
                 setLocation(location);
             }
-        }, 3000);*/
-
+        }, 3000);
     }
+    */
 
 
+    /*
     private void setLocation(Location location){
         switch (actualBox){
             case 1:
@@ -204,4 +229,6 @@ public class DatosParcelaActivity extends AppCompatActivity {
                 break;
         }
     }
+    */
+
 }

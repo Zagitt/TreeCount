@@ -65,7 +65,6 @@ public class ParcelaAdapter extends RecyclerView.Adapter<ParcelaAdapter.ParcelaV
             }
         });
 
-
     }
 
     @Override

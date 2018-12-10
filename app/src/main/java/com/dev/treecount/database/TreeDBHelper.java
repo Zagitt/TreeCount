@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.widget.Toast;
 
 import com.dev.treecount.model.Parcela;
 import com.dev.treecount.model.Person;
@@ -67,6 +68,11 @@ public class TreeDBHelper extends SQLiteOpenHelper {
     public void saveParcela(Parcela p){
         SQLiteDatabase db = getWritableDatabase();
         db.insert("parcela", null,p.toContentValues());
+    }
+
+    public void updateParcela(ContentValues values, int idParcela){
+        SQLiteDatabase db = getWritableDatabase();
+        db.update("parcela", values, "idParcela="+Integer.toString(idParcela),null);
     }
 
     public List<Parcela> getParcelas() {
