@@ -13,6 +13,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import com.dev.treecount.LoginActivity;
 
 import com.dev.treecount.services.GetHTTPTree;
 
@@ -97,6 +98,11 @@ public class MainMenuActivity extends AppCompatActivity
         } else if (id == R.id.nav_estadisticas) {
 
         } else if (id == R.id.nav_cerrar_sesion) {
+            LoginActivity login = new LoginActivity();
+            login.cerrarSesion();
+            Intent act = new Intent(this, LoginActivity.class);
+            startActivity(act);
+
 
         } else if (id == R.id.nav_salir) {
             this.finishAffinity();

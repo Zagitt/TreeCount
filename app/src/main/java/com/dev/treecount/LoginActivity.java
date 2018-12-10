@@ -101,4 +101,7 @@ public class LoginActivity extends AppCompatActivity {
         updateUI(currentUser);
     }
 
+        public void cerrarSesion(){
+            FirebaseAuth.getInstance().signOut();
+        }
 }
