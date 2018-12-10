@@ -69,8 +69,8 @@ public class TreeDBHelper extends SQLiteOpenHelper {
                 "lat decimal(10,8)," +
                 "lon decimal(10,8)," +
                 "dap varchar(45)," +
-                "altura_fuste integer," +
-                "altura_total integer," +
+                "altura_fuste decimal(10,4)," +
+                "altura_total decimal(10,4)," +
                 "idParcela integer)");
 
         onLoadInitialData(db);
@@ -206,8 +206,8 @@ public class TreeDBHelper extends SQLiteOpenHelper {
                     c.getFloat(3),    //lat
                     c.getFloat(4), //lon
                     c.getString(5), //dap
-                    c.getInt(6), //altura_fuste
-                    c.getInt(7), //loaltura_totaln
+                    c.getFloat(6), //altura_fuste
+                    c.getFloat(7), //loaltura_totaln
                     c.getInt(8) //idParcela
             ));
         }

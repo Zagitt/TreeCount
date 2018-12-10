@@ -81,19 +81,19 @@
             android:layout_height="match_parent"
             android:layout_width="match_parent">
 
-            <Button
-                android:id="@+id/btnInventario"
-                android:layout_weight="1"
-                android:text="Inventario"
-                android:layout_marginLeft="5dp"
-                android:layout_width="match_parent"
-                android:layout_height="45dp" />
 
             <Button
                 android:id="@+id/btnDetalles"
                 android:layout_weight="1"
                 android:text="Detalles"
                 android:layout_marginRight="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp" />
+            <Button
+                android:id="@+id/btnInventario"
+                android:layout_weight="1"
+                android:text="Inventario"
+                android:layout_marginLeft="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="45dp" />
 

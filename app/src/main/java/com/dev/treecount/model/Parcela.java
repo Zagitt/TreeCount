@@ -2,6 +2,8 @@ package com.dev.treecount.model;
 
 import android.content.ContentValues;
 
+import java.util.List;
+
 public class Parcela {
     private int idParcela;
     private String nombre;
@@ -18,6 +20,8 @@ public class Parcela {
     private String departamento;
     private int idBrigada;
     private String brigadaNombre;
+
+    private List<Inventario> inventarios;
 
     public Parcela() {
     }
@@ -112,6 +116,14 @@ public class Parcela {
     public String getBrigadaNombre() { return brigadaNombre; }
 
     public void setBrigadaNombre(String brigadaNombre) { this.brigadaNombre = brigadaNombre; }
+
+    public List<Inventario> getInventarios() {
+        return inventarios;
+    }
+
+    public void setInventarios(List<Inventario> inventarios) {
+        this.inventarios = inventarios;
+    }
 
     public ContentValues toContentValues () {
         ContentValues values = new ContentValues();

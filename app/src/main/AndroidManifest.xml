@@ -45,20 +45,25 @@
         <activity
             android:name=".MainMenuActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".DatosEspecieActivity" />
-        <activity android:name=".ParcelaActivity" />
+        <activity android:name=".DatosEspecieActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".ParcelaActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".DatosParcelaActivity"
-            android:label="@string/activity_detalles" />
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".DetalleMiembroActivity"/>
+            android:name=".DetalleMiembroActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
-            android:name=".InventarioParcelaActivity"/>
+            android:name=".InventarioParcelaActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
         <activity android:name=".MapActivity" />
+        <activity android:name=".MapArbolActivity" />
     </application>
 
 </manifest>

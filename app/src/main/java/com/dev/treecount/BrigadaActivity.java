@@ -63,16 +63,6 @@ public class BrigadaActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.btn_bienvenido);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-/*                Snackbar.make(view, "Bienvenido", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-                Intent act = new Intent(view.getContext(), ParcelaActivity.class);
-                startActivity(act);
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(

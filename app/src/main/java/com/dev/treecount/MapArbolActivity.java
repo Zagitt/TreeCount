@@ -7,11 +7,10 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.PorterDuff;
 import android.graphics.PorterDuffColorFilter;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.widget.Toast;
+import android.support.v4.app.FragmentActivity;
 
+import com.dev.treecount.model.Inventario;
 import com.dev.treecount.model.Parcela;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -23,7 +22,10 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.maps.model.PolygonOptions;
 import com.google.gson.Gson;
 
-public class MapActivity extends FragmentActivity implements OnMapReadyCallback {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MapArbolActivity extends FragmentActivity implements OnMapReadyCallback {
 
     private GoogleMap mMap;
     Gson gson = new Gson();
@@ -37,13 +39,25 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
-        String data =  getIntent().getExtras().getString("parcela");
-        parcela = gson.fromJson(data, Parcela.class);
+        //String data =  getIntent().getExtras().getString("parcela");
+        //parcela = gson.fromJson(data, Parcela.class);
+
+        String dataI =  getIntent().getExtras().getString("parcela");
+        parcela = gson.fromJson(dataI, Parcela.class);
     }
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+
+
+        for(Inventario p: parcela.getInventarios()){
+            Double latitud = Double.parseDouble(Float.toString(p.getLat()));
+            Double longitud = Double.parseDouble(Float.toString(p.getLon()));
+            LatLng coordenada = new LatLng(latitud, longitud);
+            mMap.addMarker(new MarkerOptions().position(coordenada).title("Árbol del tipo: "+p.getNom_comun()));
+        }
+
 
         LatLng ubicacion1 = new LatLng(Double.parseDouble( Float.toString(parcela.getRefLatitud())), Double.parseDouble( Float.toString(parcela.getRefLongitud())));
         LatLng coordenadas1 = new LatLng(Double.parseDouble( Float.toString(parcela.getP1Latitud())), Double.parseDouble( Float.toString(parcela.getP1Longitud())));
@@ -56,9 +70,7 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         mMap.addMarker(new MarkerOptions().position(coordenadas2).icon(BitmapDescriptorFactory.fromBitmap(changeBitmapColor(0))).title("Coordenada #2"));
         mMap.addMarker(new MarkerOptions().position(coordenadas3).icon(BitmapDescriptorFactory.fromBitmap(changeBitmapColor(0))).title("Coordenada #3"));
         mMap.addMarker(new MarkerOptions().position(coordenadas4).icon(BitmapDescriptorFactory.fromBitmap(changeBitmapColor(0))).title("Coordenada #4"));
-        //mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(sydney, 15));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(ubicacion1,15));
-
 
         PolygonOptions rectOptions = new PolygonOptions().add(coordenadas4,coordenadas1,coordenadas2,coordenadas3,coordenadas4).fillColor(Color.GREEN);
 
@@ -81,4 +93,5 @@ public class MapActivity extends FragmentActivity implements OnMapReadyCallback 
         return overlaym;
     }
 }
+
 

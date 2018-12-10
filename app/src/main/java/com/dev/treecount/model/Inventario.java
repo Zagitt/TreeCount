@@ -2,7 +2,9 @@ package com.dev.treecount.model;
 
 import android.content.ContentValues;
 
-public class Inventario {
+import java.util.List;
+
+public class Inventario{
 
     private int idInventario;
     private String nom_cientifico;
@@ -10,14 +12,14 @@ public class Inventario {
     private float lat;
     private float lon;
     private String dap;
-    private int altura_fuste;
-    private int altura_total;
+    private float altura_fuste;
+    private float altura_total;
     private int idParcela;
 
     public Inventario() {
     }
 
-    public Inventario(String nom_cientifico, String nom_comun, float lat, float lon, String dap, int altura_fuste, int altura_total, int idParcela) {
+    public Inventario(String nom_cientifico, String nom_comun, float lat, float lon, String dap, float altura_fuste, float altura_total, int idParcela) {
         this.nom_cientifico = nom_cientifico;
         this.nom_comun = nom_comun;
         this.lat = lat;
@@ -76,19 +78,19 @@ public class Inventario {
         this.dap = dap;
     }
 
-    public int getAltura_fuste() {
+    public float getAltura_fuste() {
         return altura_fuste;
     }
 
-    public void setAltura_fuste(int altura_fuste) {
+    public void setAltura_fuste(float altura_fuste) {
         this.altura_fuste = altura_fuste;
     }
 
-    public int getAltura_total() {
+    public float getAltura_total() {
         return altura_total;
     }
 
-    public void setAltura_total(int altura_total) {
+    public void setAltura_total(float altura_total) {
         this.altura_total = altura_total;
     }
 

@@ -1,476 +1,503 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    android:orientation="vertical"
+<android.support.v4.widget.DrawerLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:fitsSystemWindows="true"
+    tools:openDrawer="start"
     tools:context=".DatosParcelaActivity">
 
     <LinearLayout
-        android:visibility="gone"
-        android:id="@+id/lnlProgress"
-        android:gravity="center"
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="40dp">
-
-        <ProgressBar
-            style="?android:attr/progressBarStyle"
-            android:layout_width="20dp"
-            android:layout_height="20dp" />
-        <TextView
-            android:layout_marginLeft="5dp"
-            android:text="Obteniendo Coordenadas actuales..."
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <ScrollView
-        android:layout_width="match_parent"
+        android:layout_marginTop="50dp"
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="vertical"
+            android:visibility="gone"
+            android:id="@+id/lnlProgress"
+            android:layout_marginTop="50dp"
+            android:gravity="center"
             android:layout_width="match_parent"
+            android:layout_height="40dp">
+
+            <ProgressBar
+                style="?android:attr/progressBarStyle"
+                android:layout_width="20dp"
+                android:layout_marginTop="50dp"
+                android:layout_height="20dp" />
+            <TextView
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="50dp"
+                android:text="Obteniendo Coordenadas actuales..."
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+        </LinearLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_marginTop="50dp"
             android:layout_height="match_parent">
 
             <LinearLayout
                 android:orientation="vertical"
-                android:padding="10dp"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:text="Coordenadas # 1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                android:layout_height="match_parent">
 
                 <LinearLayout
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
+                    android:orientation="vertical"
+                    android:padding="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                    <TextView
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="Coordenadas # 1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
                     <LinearLayout
-                        android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content">
 
                         <LinearLayout
-                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="match_parent">
 
-                            <TextView
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:text="Latitud: "
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
 
-                            <EditText
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="14sp"
-                                android:hint="0.0"
-                                android:id="@+id/txtLatitud1"/>
+                                <TextView
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:text="Latitud: "
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:hint="0.0"
+                                    android:id="@+id/txtLatitud1"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:text="Longitud: "
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:hint="0.0"
+                                    android:id="@+id/txtLongitud1"/>
+
+                            </LinearLayout>
+
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_weight="3"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="match_parent">
 
-                            <TextView
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:text="Longitud: "
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-
-
-                            <EditText
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_margin="5dp"
+                                android:backgroundTint="@color/white"
+                                android:id="@+id/btnAdd1"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="14sp"
-                                android:hint="0.0"
-                                android:id="@+id/txtLongitud1"/>
+                                app:srcCompat="@android:drawable/ic_input_add" />
 
                         </LinearLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:gravity="center"
-                        android:layout_weight="3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <android.support.design.widget.FloatingActionButton
-                            android:layout_margin="5dp"
-                            android:backgroundTint="@color/white"
-                            android:id="@+id/btnAdd1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@android:drawable/ic_input_add" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <View
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:background="@android:color/darker_gray"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"></View>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:padding="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:text="Coordenadas # 2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <View
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"></View>
 
                 <LinearLayout
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
+                    android:orientation="vertical"
+                    android:padding="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                    <TextView
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="Coordenadas # 2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
                     <LinearLayout
-                        android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content">
 
                         <LinearLayout
-                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="match_parent">
 
-                            <TextView
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:text="Latitud: "
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
 
-                            <EditText
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="14sp"
-                                android:hint="0.0"
-                                android:id="@+id/txtLatitud2"/>
+                                <TextView
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:text="Latitud: "
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:hint="0.0"
+                                    android:id="@+id/txtLatitud2"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:text="Longitud: "
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:hint="0.0"
+                                    android:id="@+id/txtLongitud2"/>
+
+                            </LinearLayout>
+
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_weight="3"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="match_parent">
 
-                            <TextView
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:text="Longitud: "
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-                            <EditText
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_margin="5dp"
+                                android:backgroundTint="@color/white"
+                                android:id="@+id/btnAdd2"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="14sp"
-                                android:hint="0.0"
-                                android:id="@+id/txtLongitud2"/>
+                                app:srcCompat="@android:drawable/ic_input_add" />
 
                         </LinearLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:gravity="center"
-                        android:layout_weight="3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <android.support.design.widget.FloatingActionButton
-                            android:layout_margin="5dp"
-                            android:backgroundTint="@color/white"
-                            android:id="@+id/btnAdd2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@android:drawable/ic_input_add" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <View
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:background="@android:color/darker_gray"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"></View>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:padding="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:text="Coordenadas # 3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <View
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"></View>
 
                 <LinearLayout
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
+                    android:orientation="vertical"
+                    android:padding="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                    <TextView
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="Coordenadas # 3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
                     <LinearLayout
-                        android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content">
 
                         <LinearLayout
-                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="match_parent">
 
-                            <TextView
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:text="Latitud: "
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
 
-                            <EditText
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="14sp"
-                                android:hint="0.0"
-                                android:id="@+id/txtLatitud3"/>
+                                <TextView
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:text="Latitud: "
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:hint="0.0"
+                                    android:id="@+id/txtLatitud3"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:text="Longitud: "
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:hint="0.0"
+                                    android:id="@+id/txtLongitud3"/>
+
+                            </LinearLayout>
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_weight="3"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="match_parent">
 
-                            <TextView
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:text="Longitud: "
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-
-                            <EditText
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_margin="5dp"
+                                android:backgroundTint="@color/white"
+                                android:id="@+id/btnAdd3"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="14sp"
-                                android:hint="0.0"
-                                android:id="@+id/txtLongitud3"/>
+                                app:srcCompat="@android:drawable/ic_input_add" />
 
                         </LinearLayout>
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:gravity="center"
-                        android:layout_weight="3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <android.support.design.widget.FloatingActionButton
-                            android:layout_margin="5dp"
-                            android:backgroundTint="@color/white"
-                            android:id="@+id/btnAdd3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@android:drawable/ic_input_add" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
-
-            <View
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:background="@android:color/darker_gray"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"></View>
-
-            <LinearLayout
-                android:orientation="vertical"
-                android:padding="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:textSize="16sp"
-                    android:textStyle="bold"
-                    android:text="Coordenadas # 4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                <View
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"></View>
 
                 <LinearLayout
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="5dp"
-                    android:paddingStart="20dp"
-                    android:paddingEnd="20dp"
+                    android:orientation="vertical"
+                    android:padding="10dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
+                    <TextView
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:text="Coordenadas # 4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
                     <LinearLayout
-                        android:gravity="center_vertical"
-                        android:orientation="vertical"
-                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginBottom="5dp"
+                        android:paddingStart="20dp"
+                        android:paddingEnd="20dp"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                        android:layout_height="wrap_content">
 
                         <LinearLayout
-                            android:orientation="horizontal"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical"
+                            android:layout_weight="1"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="match_parent">
 
-                            <TextView
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:text="Latitud: "
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
 
-                            <EditText
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="14sp"
-                                android:hint="0.0"
-                                android:id="@+id/txtLatitud4"/>
+                                <TextView
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:text="Latitud: "
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:hint="0.0"
+                                    android:id="@+id/txtLatitud4"/>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:orientation="horizontal"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content">
+
+                                <TextView
+                                    android:textSize="14sp"
+                                    android:textStyle="bold"
+                                    android:text="Longitud: "
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content" />
+
+                                <EditText
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:textSize="14sp"
+                                    android:hint="0.0"
+                                    android:id="@+id/txtLongitud4"/>
+
+                            </LinearLayout>
+
 
                         </LinearLayout>
 
                         <LinearLayout
-                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:layout_weight="3"
                             android:layout_width="match_parent"
-                            android:layout_height="wrap_content">
+                            android:layout_height="match_parent">
 
-                            <TextView
-                                android:textSize="14sp"
-                                android:textStyle="bold"
-                                android:text="Longitud: "
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content" />
-
-                            <EditText
+                            <android.support.design.widget.FloatingActionButton
+                                android:layout_margin="5dp"
+                                android:backgroundTint="@color/white"
+                                android:id="@+id/btnAdd4"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:textSize="14sp"
-                                android:hint="0.0"
-                                android:id="@+id/txtLongitud4"/>
+                                app:srcCompat="@android:drawable/ic_input_add" />
 
                         </LinearLayout>
-
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:gravity="center"
-                        android:layout_weight="3"
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <android.support.design.widget.FloatingActionButton
-                            android:layout_margin="5dp"
-                            android:backgroundTint="@color/white"
-                            android:id="@+id/btnAdd4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            app:srcCompat="@android:drawable/ic_input_add" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
-            </LinearLayout>
+                <!--
 
-            <!--
-
-            <View
-                android:layout_marginStart="5dp"
-                android:layout_marginEnd="5dp"
-                android:background="@android:color/darker_gray"
-                android:layout_width="match_parent"
-                android:layout_height="1dp"></View>
-
-            <Button
-                android:layout_margin="20dp"
-                android:text="Finalizar Parcela"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
-                -->
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:orientation="horizontal"
-                android:layout_margin="10dp">
+                <View
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:background="@android:color/darker_gray"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"></View>
 
                 <Button
-                    android:layout_width="140dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btnGuardar"
-                    android:layout_margin="2dp"
-                    android:text="Guardar" />
+                    android:layout_margin="20dp"
+                    android:text="Finalizar Parcela"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+                    -->
 
-                <Button
-                    android:layout_width="160dp"
-                    android:layout_height="wrap_content"
-                    android:id="@+id/btnMostrarMapa"
-                    android:drawableLeft="@drawable/icon_gmaps"
-                    android:layout_margin="2dp"
-                    android:text="Mostrar Mapa" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_margin="10dp">
 
+                    <Button
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnGuardar"
+                        android:layout_margin="2dp"
+                        android:text="Guardar" />
+
+                    <Button
+                        android:layout_width="160dp"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/btnMostrarMapa"
+                        android:drawableLeft="@drawable/icon_gmaps"
+                        android:layout_margin="2dp"
+                        android:text="Mostrar Mapa" />
+
+                </LinearLayout>
             </LinearLayout>
-        </LinearLayout>
 
-    </ScrollView>
-
+        </ScrollView>
 
 
-</LinearLayout>
+    </LinearLayout>
+
+
+    <include
+        layout="@layout/app_bar_main_menu"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:fitsSystemWindows="true"
+        app:headerLayout="@layout/nav_header_main_menu"
+        app:menu="@menu/activity_main_menu_drawer" />
+</android.support.v4.widget.DrawerLayout>
