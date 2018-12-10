@@ -53,6 +53,22 @@ public class TreeDBHelper extends SQLiteOpenHelper {
                    "idBrigada integer primary key," +
                    "nombre varchar(45))");
 
+        db.execSQL("create table if not exists arbol (" +
+                "idarbol integer primary key," +
+                "nombre_comun varchar(45)," +
+                "nombre_cientifico varchar(45)," +
+                "idParcela varchar(45))");
+
+        db.execSQL("create table if not exists inventario (" +
+                "idInventario integer primary key," +
+                "nom_cientifico varchar(45)," +
+                "nom_comun varchar(45)," +
+                "lat decimal(10,8)," +
+                "lon varchar(10,8)," +
+                "dap varchar(45)," +
+                "altura_fuste integer," +
+                "altura_total integer," +
+                "idParcela integer)");
     }
 
     @Override
@@ -90,6 +106,32 @@ public class TreeDBHelper extends SQLiteOpenHelper {
                     c.getString(12), // departamento
                     c.getInt(13),    // idBrigada
                     c.getString(14)  // brigadaNombre
+            ));
+        }
+        return lista;
+    }
+
+
+    public List<Person> getPersonas(){
+        SQLiteDatabase db = getReadableDatabase();
+        Cursor c = db.query("persona",
+                null,   //COlumnas a listar
+                null,   //Columnas en clausula WHERE
+                null,   //Valores de las columnas de la clausula WHERE
+                null,   //Group by - columnas
+                null,   //Condicion de agrupamiento
+                "nombre"
+        );
+
+        List<Person> lista = new ArrayList<>();
+        while(c.moveToNext()){
+            lista.add(new Person(
+                    c.getString(1), //nombre
+                    c.getString(3), //dni
+                    c.getString(4),    //cargo
+                    c.getString(2), //apellido
+                    c.getInt(5),    //idBrigada
+                    c.getInt(0)     //idPersona
             ));
         }
         return lista;

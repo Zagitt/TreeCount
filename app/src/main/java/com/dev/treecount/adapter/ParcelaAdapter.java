@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.dev.treecount.DatosParcelaActivity;
+import com.dev.treecount.InventarioParcelaActivity;
 import com.dev.treecount.MainMenuActivity;
 import com.dev.treecount.R;
 import com.dev.treecount.model.Parcela;
@@ -50,6 +51,9 @@ public class ParcelaAdapter extends RecyclerView.Adapter<ParcelaAdapter.ParcelaV
             public void onClick(View v) {
 
                 // AQUI LOS DETALLES
+                Intent intent = new Intent(context, InventarioParcelaActivity.class);
+                intent.putExtra("parcela", new Gson().toJson(parcela));
+                context.startActivity(intent);
 
             }
         });

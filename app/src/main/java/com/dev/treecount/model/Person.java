@@ -9,37 +9,29 @@ import android.content.ContentValues;
 public class Person {
     private String nombre;
     private String dni;
-    private int edad;
-    private String biografia;
-    private int idphoto;
-    private int id;
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private String cargo;
+    private String apellido;
+    private int idBrigada;
+    private int idPersona;
 
     public Person() {
     }
 
-    public Person(String nombre, String dni, int edad, String biografia, int idphoto, int id) {
+    public Person(String nombre, String dni, String cargo, String apellido, int idBrigada, int idPersona) {
         this.nombre = nombre;
         this.dni = dni;
-        this.edad = edad;
-        this.biografia = biografia;
-        this.idphoto = idphoto;
-        this.id = id;
+        this.cargo = cargo;
+        this.apellido = apellido;
+        this.idBrigada = idBrigada;
+        this.idPersona = idPersona;
     }
 
-    public Person(String nombre, String dni, int edad, String biografia, int idphoto) {
+    public Person(String nombre, String dni, String cargo, String apellido, int idBrigada) {
         this.nombre = nombre;
         this.dni = dni;
-        this.edad = edad;
-        this.biografia = biografia;
-        this.idphoto = idphoto;
+        this.cargo = cargo;
+        this.apellido = apellido;
+        this.idBrigada = idBrigada;
     }
 
     public String getNombre() {
@@ -58,37 +50,45 @@ public class Person {
         this.dni = dni;
     }
 
-    public int getEdad() {
-        return edad;
+    public String getCargo() {
+        return cargo;
     }
 
-    public void setEdad(int edad) {
-        this.edad = edad;
+    public void setCargo(String cargo) {
+        this.cargo = cargo;
     }
 
-    public String getBiografia() {
-        return biografia;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setBiografia(String biografia) {
-        this.biografia = biografia;
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-    public int getIdphoto() {
-        return idphoto;
+    public int getIdBrigada() {
+        return idBrigada;
     }
 
-    public void setIdphoto(int idphoto) {
-        this.idphoto = idphoto;
+    public void setIdBrigada(int idBrigada) {
+        this.idBrigada = idBrigada;
+    }
+
+    public int getIdPersona() {
+        return idPersona;
+    }
+
+    public void setIdPersona(int idPersona) {
+        this.idPersona = idPersona;
     }
 
     public ContentValues toContentValues(){
         ContentValues values = new ContentValues();
         values.put("nombre", this.nombre);
         values.put("dni", this.dni);
-        values.put("edad", this.edad);
-        values.put("biografia", this.biografia);
-        values.put("idfoto", this.idphoto);
+        values.put("cargo", this.cargo);
+        values.put("apellido", this.apellido);
+        values.put("idBrigada", this.idBrigada);
         return  values;
     }
 }
